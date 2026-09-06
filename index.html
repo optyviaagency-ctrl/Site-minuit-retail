@@ -6,21 +6,65 @@
   <title>Minuit Retail — Le point de vente qui travaille pour vous quand tout est fermé</title>
   <meta name="description" content="Minuit Retail installe des distributeurs autonomes dans les établissements de nuit. 0 € à investir, 0 gestion quotidienne, une redevance sur chaque vente. Région Provence-Alpes-Côte d'Azur." />
   <meta name="theme-color" content="#0a0a0f" />
+  <meta name="author" content="Minuit Retail" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.minuit-retail.fr/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Minuit Retail" />
+  <meta property="og:url" content="https://www.minuit-retail.fr/" />
   <meta property="og:title" content="Minuit Retail — Le point de vente qui travaille pour vous" />
   <meta property="og:description" content="Distributeur autonome installé, approvisionné et supervisé par Minuit Retail. Vous fournissez l'emplacement, nous nous occupons du reste." />
+  <meta property="og:image" content="https://www.minuit-retail.fr/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="fr_FR" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Minuit Retail — Le point de vente qui travaille pour vous quand tout est fermé" />
+  <meta name="twitter:description" content="0 € à investir, 0 gestion quotidienne, une redevance sur chaque vente." />
+  <meta name="twitter:image" content="https://www.minuit-retail.fr/assets/og-image.png" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Minuit Retail",
+    "legalName": "Minuit Retail SAS",
+    "url": "https://www.minuit-retail.fr/",
+    "logo": "https://www.minuit-retail.fr/assets/favicon.svg",
+    "description": "Réseau de distributeurs autonomes installés dans les établissements de nuit de la région Provence-Alpes-Côte d'Azur. 0 € à investir pour l'établissement, une redevance sur chaque vente.",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Provence-Alpes-Côte d'Azur" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Gémenos", "postalCode": "13420", "addressRegion": "Provence-Alpes-Côte d'Azur", "addressCountry": "FR" },
+    "slogan": "Le point de vente qui travaille pour vous quand tout est fermé."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Est-ce que ça me coûte quelque chose ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Zéro euro d'investissement, zéro gestion quotidienne. La machine, le stock, la maintenance et l'assurance sont à notre charge. Vous percevez une redevance sur chaque vente." } },
+      { "@type": "Question", "name": "Qui est responsable du contrôle d'âge ?", "acceptedAnswer": { "@type": "Answer", "text": "La machine. Le lecteur de document vérifie la majorité et conditionne techniquement la délivrance du produit. Votre équipe n'intervient jamais et n'endosse aucune responsabilité sur ce point." } },
+      { "@type": "Question", "name": "Est-ce légal ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. La vente de produits de vapotage échappe au monopole des buralistes et la distribution automatique est licite. La gamme est exclusivement composée de références rechargeables conformes ; aucun dispositif à usage unique." } },
+      { "@type": "Question", "name": "Qui gère le réassort et les pannes ?", "acceptedAnswer": { "@type": "Answer", "text": "Nos équipes. Deux passages de réassort par mois pendant vos heures d'ouverture, stock et ventes suivis à distance, maintenance et assurance incluses." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#concept">Aller au contenu</a>
 
   <!-- ============ HEADER ============ -->
@@ -40,8 +84,9 @@
         <a href="#concept">Le concept</a>
         <a href="#machine">La machine</a>
         <a href="#etablissement">Votre rôle</a>
+        <a href="#conformite">Conformité</a>
         <a href="#revenus">Vos revenus</a>
-        <a href="#partenariat">Partenariat</a>
+        <a href="#faq">FAQ</a>
       </nav>
 
       <a href="#partenariat" class="btn btn-primary header-cta">Devenir partenaire</a>
@@ -55,8 +100,9 @@
       <a href="#machine">La machine</a>
       <a href="#etablissement">Votre rôle</a>
       <a href="#gamme">La gamme</a>
+      <a href="#conformite">Conformité</a>
       <a href="#revenus">Vos revenus</a>
-      <a href="#partenariat">Partenariat</a>
+      <a href="#faq">FAQ</a>
       <a href="#partenariat" class="btn btn-primary">Devenir partenaire</a>
     </nav>
   </header>
@@ -64,6 +110,7 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero">
+      <canvas class="hero-stars" id="hero-stars" aria-hidden="true"></canvas>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-copy">
@@ -153,6 +200,28 @@
         <div class="marquee-track">
           <span>Discothèques</span><span aria-hidden="true">·</span><span>Bars de nuit</span><span aria-hidden="true">·</span><span>Beach clubs</span><span aria-hidden="true">·</span><span>Contrôle d'âge intégré</span><span aria-hidden="true">·</span><span>Paiement sans contact</span><span aria-hidden="true">·</span><span>Supervision à distance</span><span aria-hidden="true">·</span>
           <span>Discothèques</span><span aria-hidden="true">·</span><span>Bars de nuit</span><span aria-hidden="true">·</span><span>Beach clubs</span><span aria-hidden="true">·</span><span>Contrôle d'âge intégré</span><span aria-hidden="true">·</span><span>Paiement sans contact</span><span aria-hidden="true">·</span><span>Supervision à distance</span><span aria-hidden="true">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BANDEAU CHIFFRES ============ -->
+    <section class="stats-band" aria-label="Chiffres clés">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-num" data-count="6" data-suffix="h">0 h</span>
+          <span class="stat-label">Disponible de minuit à 6 h, quand tout est fermé</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="60" data-prefix="&lt; " data-suffix="s">&lt; 60 s</span>
+          <span class="stat-label">Un achat réalisé en moins d'une minute</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="0" data-suffix=" €">0 €</span>
+          <span class="stat-label">Investissement et gestion pour l'établissement</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="100" data-suffix=" %">100 %</span>
+          <span class="stat-label">Des transactions avec contrôle d'âge intégré</span>
         </div>
       </div>
     </section>
@@ -365,11 +434,55 @@
       </div>
     </section>
 
-    <!-- ============ REVENUS + SIMULATEUR ============ -->
-    <section class="section" id="revenus">
+    <!-- ============ CONFORMITE ============ -->
+    <section class="section" id="conformite">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">05 — Vos revenus</span>
+          <span class="section-index">05 — Conformité</span>
+          <h2>Un cadre maîtrisé, une responsabilité qui reste chez nous.</h2>
+          <p class="section-intro">La vente de produits de vapotage est encadrée. Minuit Retail porte l'ensemble des obligations : vous accueillez la machine, sans jamais endosser la conformité.</p>
+        </div>
+
+        <div class="conformity-grid">
+          <article class="conf-card reveal">
+            <span class="conf-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Contrôle d'âge à chaque vente</h3>
+            <p>Le lecteur de document intégré vérifie la majorité et conditionne techniquement la délivrance. Aucun geste de votre équipe, aucune responsabilité à votre charge.</p>
+          </article>
+          <article class="conf-card reveal">
+            <span class="conf-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+            </span>
+            <h3>Aucun dispositif à usage unique</h3>
+            <p>La gamme est exclusivement composée de références rechargeables conformes à la réglementation française. Les puffs jetables, interdits, sont écartés par principe.</p>
+          </article>
+          <article class="conf-card reveal">
+            <span class="conf-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v7l9 4 9-4V7"/></svg>
+            </span>
+            <h3>Approvisionnement français</h3>
+            <p>Nous nous fournissons auprès d'un distributeur français qui porte les obligations de notification et d'étiquetage. La traçabilité produit ne repose jamais sur l'établissement.</p>
+          </article>
+          <article class="conf-card reveal">
+            <span class="conf-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            </span>
+            <h3>Exclusivité d'emplacement</h3>
+            <p>Le contrat protège votre machine de toute installation concurrente : un seul point de vente automatisé de ce type dans votre établissement — le vôtre.</p>
+          </article>
+        </div>
+
+        <p class="conf-note reveal">Interdiction de vente aux mineurs de moins de 18 ans. Les produits proposés respectent la réglementation française en vigueur sur les produits du vapotage.</p>
+      </div>
+    </section>
+
+    <!-- ============ REVENUS + SIMULATEUR ============ -->
+    <section class="section section-alt" id="revenus">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">06 — Vos revenus</span>
           <h2>L'emplacement fait toute la différence.</h2>
           <p class="section-intro">À machine et gamme identiques, une machine visible depuis le bar vend deux à trois fois plus qu'une machine reléguée dans un couloir. C'est la variable que vous maîtrisez — et c'est elle qui détermine votre redevance.</p>
         </div>
@@ -438,11 +551,53 @@
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="section-head reveal">
+          <span class="section-index">07 — Questions fréquentes</span>
+          <h2>Les questions qu'on nous pose.</h2>
+          <p class="section-intro">Tout ce qu'un exploitant se demande avant d'accueillir une machine. Une réponse manque ? Écrivez-nous.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary><span>Est-ce que ça me coûte quelque chose ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Non. Zéro euro d'investissement, zéro gestion quotidienne. La machine, le stock, la maintenance et l'assurance sont à notre charge. Vous percevez une redevance sur chaque vente.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Qui est responsable du contrôle d'âge ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>La machine. Le lecteur de document vérifie la majorité et conditionne techniquement la délivrance du produit. Votre équipe n'intervient jamais et n'endosse aucune responsabilité sur ce point.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Combien de place faut-il ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Moins d'un demi-mètre carré. Format comptoir compact (600 × 270 × 1030 mm), posé près du bar ou sur le trajet de la zone fumeur, avec une simple prise électrique de 80 W.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Est-ce légal ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Oui. La vente de produits de vapotage échappe au monopole des buralistes et la distribution automatique est licite. La gamme est exclusivement composée de références rechargeables conformes ; aucun dispositif à usage unique.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Qui gère le réassort et les pannes ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Nos équipes. Deux passages de réassort par mois pendant vos heures d'ouverture, stock et ventes suivis à distance, maintenance et assurance incluses. Vous n'avez rien à stocker ni à manipuler.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Et si la machine ne fonctionne pas chez moi ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Le format mural rend le retrait simple et sans frais pour vous. Une machine qui ne performe pas est déplacée plutôt que conservée — vous ne portez aucun risque de stock ni d'invendu.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Quel type d'établissement est concerné ?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>En priorité les discothèques et bars de nuit de la région PACA, dont la clientèle est exclusivement adulte et sans alternative ouverte entre minuit et six heures. Beach clubs et campings sont étudiés en complément saisonnier.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PARTENARIAT ============ -->
     <section class="section section-alt" id="partenariat">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">06 — Partenariat</span>
+          <span class="section-index">08 — Partenariat</span>
           <h2>Devenir établissement partenaire.</h2>
           <p class="section-intro">Quatre étapes, de la visite à votre première facture. <strong>0 € à investir. Une redevance sur chaque vente.</strong></p>
         </div>
@@ -547,6 +702,10 @@
       </div>
     </div>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Revenir en haut" hidden>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
   <script src="js/script.js"></script>
 </body>
