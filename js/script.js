@@ -58,6 +58,77 @@
     reveals.forEach(function (el) { el.classList.add("visible"); });
   }
 
+  /* ---------- Titres : révélation mot par mot (masque) ---------- */
+  function wrapWord(node, idx) {
+    var w = document.createElement("span"); w.className = "word";
+    var inner = document.createElement("span"); inner.className = "w-in";
+    inner.style.setProperty("--i", idx);
+    inner.appendChild(node);
+    w.appendChild(inner);
+    return w;
+  }
+  function splitWords(el) {
+    var nodes = Array.prototype.slice.call(el.childNodes);
+    el.textContent = "";
+    var i = 0;
+    nodes.forEach(function (node) {
+      if (node.nodeType === 3) {
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (part === "") return;
+          if (/^\s+$/.test(part)) { el.appendChild(document.createTextNode(" ")); return; }
+          el.appendChild(wrapWord(document.createTextNode(part), i++));
+        });
+      } else if (node.nodeType === 1) {
+        node.classList.add("w-in");
+        node.style.setProperty("--i", i++);
+        var w = document.createElement("span"); w.className = "word";
+        w.appendChild(node);
+        el.appendChild(w);
+      }
+    });
+  }
+  var heroTitle = document.querySelector(".hero .anim-text");
+  if (heroTitle && !prefersReduced) {
+    splitWords(heroTitle);
+    var wc = heroTitle.querySelectorAll(".w-in").length;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { heroTitle.classList.add("in"); }); });
+    setTimeout(function () { heroTitle.classList.add("done"); }, 950 + wc * 55);
+  }
+
+  /* ---------- Entrées échelonnées ---------- */
+  var staggers = document.querySelectorAll(".stagger");
+  staggers.forEach(function (grp) {
+    Array.prototype.forEach.call(grp.children, function (child, idx) { child.style.setProperty("--s", idx); });
+  });
+  if ("IntersectionObserver" in window && staggers.length) {
+    var sio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visible"); sio.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+    staggers.forEach(function (g) { sio.observe(g); });
+  } else {
+    staggers.forEach(function (g) { g.classList.add("visible"); });
+  }
+
+  /* ---------- Parallax du hero ---------- */
+  var machineScene = document.querySelector(".machine-scene");
+  var heroNeons = document.querySelectorAll(".hero-scene .neon");
+  if (!prefersReduced && (machineScene || heroNeons.length)) {
+    var pTicking = false;
+    var applyParallax = function () {
+      var y = window.scrollY;
+      if (y < 1300) {
+        if (machineScene) machineScene.style.transform = "translateY(" + (y * 0.12) + "px)";
+        for (var k = 0; k < heroNeons.length; k++) {
+          heroNeons[k].style.transform = "translate3d(0," + (y * (0.05 + k * 0.045)) + "px,0)";
+        }
+      }
+      pTicking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!pTicking) { requestAnimationFrame(applyParallax); pTicking = true; }
+    }, { passive: true });
+  }
+
   /* ---------- Simulateur de redevance ----------
      Barème par tranches (chaque taux sur sa tranche uniquement) :
        1 – 100      : 10 %
