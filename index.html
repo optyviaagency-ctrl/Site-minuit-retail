@@ -110,8 +110,31 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <canvas class="hero-stars" id="hero-stars" aria-hidden="true"></canvas>
-      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-scene" aria-hidden="true">
+        <canvas class="hero-stars" id="hero-stars"></canvas>
+        <span class="neon neon-gold"></span>
+        <span class="neon neon-violet"></span>
+        <span class="neon neon-magenta"></span>
+        <svg class="hero-skyline" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice">
+          <g fill="#0c0d14">
+            <rect x="0" y="120" width="90" height="100"/><rect x="70" y="80" width="60" height="140"/>
+            <rect x="120" y="140" width="80" height="80"/><rect x="190" y="60" width="46" height="160"/>
+            <rect x="230" y="110" width="70" height="110"/><rect x="300" y="150" width="90" height="70"/>
+            <rect x="380" y="90" width="54" height="130"/><rect x="430" y="130" width="80" height="90"/>
+            <rect x="520" y="70" width="48" height="150"/><rect x="560" y="120" width="90" height="100"/>
+            <rect x="650" y="150" width="70" height="70"/><rect x="710" y="100" width="60" height="120"/>
+            <rect x="770" y="140" width="86" height="80"/><rect x="850" y="76" width="50" height="144"/>
+            <rect x="900" y="126" width="78" height="94"/><rect x="980" y="150" width="90" height="70"/>
+            <rect x="1060" y="94" width="56" height="126"/><rect x="1110" y="134" width="80" height="86"/>
+            <rect x="1200" y="70" width="48" height="150"/><rect x="1244" y="122" width="86" height="98"/>
+            <rect x="1330" y="150" width="70" height="70"/><rect x="1390" y="100" width="60" height="120"/>
+          </g>
+          <g fill="#e3c078" opacity="0.5">
+            <rect x="86" y="96" width="4" height="6"/><rect x="98" y="110" width="4" height="6"/><rect x="204" y="80" width="4" height="6"/><rect x="212" y="104" width="4" height="6"/><rect x="536" y="90" width="4" height="6"/><rect x="546" y="120" width="4" height="6"/><rect x="864" y="96" width="4" height="6"/><rect x="1074" y="112" width="4" height="6"/><rect x="1216" y="92" width="4" height="6"/><rect x="1226" y="120" width="4" height="6"/>
+          </g>
+        </svg>
+        <div class="hero-fade"></div>
+      </div>
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="eyebrow reveal">Réseau de distributeurs · établissements de nuit · PACA</p>
@@ -128,8 +151,8 @@
               <span class="badge-label">gestion quotidienne</span>
             </div>
             <div class="badge-card">
-              <span class="badge-num">%</span>
-              <span class="badge-label">une redevance sur chaque vente</span>
+              <span class="badge-num">10–20&nbsp;%</span>
+              <span class="badge-label">de redevance sur chaque vente</span>
             </div>
           </div>
 
@@ -140,66 +163,82 @@
         </div>
 
         <div class="hero-visual reveal" aria-hidden="true">
-          <!-- Machine illustration -->
           <div class="machine-scene">
             <div class="machine-halo"></div>
-            <svg class="machine-svg" viewBox="0 0 220 400" role="img" aria-label="Distributeur Minuit Retail">
+            <div class="machine-reflection"></div>
+            <svg class="machine-svg" viewBox="0 0 240 470" role="img" aria-label="Distributeur Minuit Retail">
               <defs>
                 <linearGradient id="cab" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#20222c"/>
-                  <stop offset="1" stop-color="#0f1016"/>
+                  <stop offset="0" stop-color="#26283340"/><stop offset="0.5" stop-color="#181a22"/><stop offset="1" stop-color="#0d0e14"/>
+                </linearGradient>
+                <linearGradient id="cabEdge" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#3a3d4a"/><stop offset="0.5" stop-color="#1a1c24"/><stop offset="1" stop-color="#2c2f3a"/>
                 </linearGradient>
                 <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#1b2a3a"/>
-                  <stop offset="1" stop-color="#0c1420"/>
+                  <stop offset="0" stop-color="#141722"/><stop offset="1" stop-color="#0a0c12"/>
+                </linearGradient>
+                <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffffff" stop-opacity="0.09"/><stop offset="0.4" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#8f7bd6" stop-opacity="0.05"/>
                 </linearGradient>
                 <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#e7cd8b"/>
-                  <stop offset="1" stop-color="#c19a4e"/>
+                  <stop offset="0" stop-color="#f0dca0"/><stop offset="1" stop-color="#c19a4e"/>
                 </linearGradient>
               </defs>
-              <!-- cabinet -->
-              <rect x="20" y="10" width="180" height="380" rx="16" fill="url(#cab)" stroke="#2c2f3a" stroke-width="1.5"/>
-              <!-- screen -->
-              <rect x="34" y="26" width="152" height="150" rx="8" fill="url(#scr)" stroke="#33506e" stroke-width="1"/>
-              <text x="110" y="70" text-anchor="middle" fill="#e7cd8b" font-family="Fraunces, serif" font-size="15" letter-spacing="1">MINUIT</text>
-              <text x="110" y="88" text-anchor="middle" fill="#9fb4c9" font-family="Inter, sans-serif" font-size="8" letter-spacing="2">RETAIL</text>
-              <line x1="52" y1="104" x2="168" y2="104" stroke="#2a4056" stroke-width="1"/>
-              <rect x="52" y="118" width="46" height="30" rx="5" fill="#12202e" stroke="#2a4056"/>
-              <rect x="122" y="118" width="46" height="30" rx="5" fill="#12202e" stroke="#2a4056"/>
-              <rect x="52" y="118" width="46" height="30" rx="5" fill="none" stroke="#c19a4e" stroke-width="1" opacity="0.5"/>
-              <!-- product shelves -->
+
+              <!-- floor shadow -->
+              <ellipse cx="120" cy="454" rx="96" ry="12" fill="#000" opacity="0.55"/>
+
+              <!-- cabinet body -->
+              <rect x="24" y="8" width="192" height="440" rx="18" fill="url(#cabEdge)"/>
+              <rect x="27" y="11" width="186" height="434" rx="16" fill="url(#cab)" stroke="#31343f" stroke-width="1"/>
+              <!-- gold rim light (left edge) -->
+              <path d="M31 30 v396" stroke="url(#gold)" stroke-width="1.5" opacity="0.45" stroke-linecap="round"/>
+
+              <!-- top screen -->
+              <rect x="40" y="26" width="160" height="120" rx="10" fill="url(#scr)" stroke="#2a2d3a" stroke-width="1"/>
+              <text x="120" y="70" text-anchor="middle" fill="#e7cd8b" font-family="Fraunces, serif" font-size="19" letter-spacing="2">MINUIT</text>
+              <text x="120" y="88" text-anchor="middle" fill="#8f8a80" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="5">RETAIL</text>
+              <line x1="60" y1="104" x2="180" y2="104" stroke="#2a2d3a" stroke-width="1"/>
+              <rect x="60" y="116" width="52" height="20" rx="6" fill="none" stroke="#c19a4e" stroke-width="1" opacity="0.6"/>
+              <text x="86" y="130" text-anchor="middle" fill="#e7cd8b" font-family="Inter, sans-serif" font-size="9" letter-spacing="1">CHOISIR</text>
+              <rect x="120" y="116" width="60" height="20" rx="6" fill="#15171f" stroke="#2a2d3a"/>
+
+              <!-- glass display cabinet -->
+              <rect x="40" y="156" width="160" height="212" rx="8" fill="#08090e" stroke="#2a2d38"/>
+              <!-- shelves -->
+              <g stroke="#20232d" stroke-width="1">
+                <line x1="40" y1="207" x2="200" y2="207"/><line x1="40" y1="258" x2="200" y2="258"/><line x1="40" y1="309" x2="200" y2="309"/>
+              </g>
+              <!-- vape pods on shelves (rounded, slight color variety) -->
               <g>
-                <rect x="34" y="188" width="152" height="120" rx="6" fill="#0c0d12" stroke="#2a2d38"/>
-                <line x1="34" y1="218" x2="186" y2="218" stroke="#22252f"/>
-                <line x1="34" y1="248" x2="186" y2="248" stroke="#22252f"/>
-                <line x1="34" y1="278" x2="186" y2="278" stroke="#22252f"/>
-                <g fill="#1c2530">
-                  <rect x="44" y="196" width="10" height="18" rx="3"/><rect x="60" y="196" width="10" height="18" rx="3"/><rect x="76" y="196" width="10" height="18" rx="3"/><rect x="92" y="196" width="10" height="18" rx="3"/><rect x="108" y="196" width="10" height="18" rx="3"/><rect x="124" y="196" width="10" height="18" rx="3"/><rect x="140" y="196" width="10" height="18" rx="3"/><rect x="156" y="196" width="10" height="18" rx="3"/>
-                  <rect x="44" y="226" width="10" height="18" rx="3"/><rect x="60" y="226" width="10" height="18" rx="3"/><rect x="76" y="226" width="10" height="18" rx="3"/><rect x="92" y="226" width="10" height="18" rx="3"/><rect x="108" y="226" width="10" height="18" rx="3"/><rect x="124" y="226" width="10" height="18" rx="3"/><rect x="140" y="226" width="10" height="18" rx="3"/><rect x="156" y="226" width="10" height="18" rx="3"/>
-                  <rect x="44" y="256" width="10" height="18" rx="3"/><rect x="60" y="256" width="10" height="18" rx="3"/><rect x="76" y="256" width="10" height="18" rx="3"/><rect x="92" y="256" width="10" height="18" rx="3"/><rect x="108" y="256" width="10" height="18" rx="3"/><rect x="124" y="256" width="10" height="18" rx="3"/><rect x="140" y="256" width="10" height="18" rx="3"/><rect x="156" y="256" width="10" height="18" rx="3"/>
-                </g>
+                <g fill="#242a36"><rect x="52" y="170" width="12" height="30" rx="4"/><rect x="70" y="170" width="12" height="30" rx="4"/><rect x="88" y="170" width="12" height="30" rx="4"/><rect x="106" y="170" width="12" height="30" rx="4"/><rect x="124" y="170" width="12" height="30" rx="4"/><rect x="142" y="170" width="12" height="30" rx="4"/><rect x="160" y="170" width="12" height="30" rx="4"/><rect x="178" y="170" width="12" height="30" rx="4"/></g>
+                <g fill="#2a2233"><rect x="52" y="221" width="12" height="30" rx="4"/><rect x="70" y="221" width="12" height="30" rx="4"/><rect x="88" y="221" width="12" height="30" rx="4"/><rect x="106" y="221" width="12" height="30" rx="4"/><rect x="124" y="221" width="12" height="30" rx="4"/><rect x="142" y="221" width="12" height="30" rx="4"/><rect x="160" y="221" width="12" height="30" rx="4"/><rect x="178" y="221" width="12" height="30" rx="4"/></g>
+                <g fill="#26303a"><rect x="52" y="272" width="12" height="30" rx="4"/><rect x="70" y="272" width="12" height="30" rx="4"/><rect x="88" y="272" width="12" height="30" rx="4"/><rect x="106" y="272" width="12" height="30" rx="4"/><rect x="124" y="272" width="12" height="30" rx="4"/><rect x="142" y="272" width="12" height="30" rx="4"/><rect x="160" y="272" width="12" height="30" rx="4"/><rect x="178" y="272" width="12" height="30" rx="4"/></g>
+                <!-- pod caps -->
+                <g fill="#c19a4e" opacity="0.55"><rect x="54" y="170" width="8" height="4" rx="2"/><rect x="126" y="221" width="8" height="4" rx="2"/><rect x="90" y="272" width="8" height="4" rx="2"/></g>
               </g>
-              <!-- card reader -->
-              <rect x="150" y="320" width="36" height="24" rx="4" fill="#161821" stroke="#c19a4e" stroke-width="1"/>
-              <circle cx="160" cy="332" r="3" fill="#e7cd8b"/>
-              <path d="M167 328 q5 4 0 8" stroke="#e7cd8b" fill="none" stroke-width="1.3"/>
+              <!-- glass reflection sheen -->
+              <rect x="40" y="156" width="160" height="212" rx="8" fill="url(#glass)"/>
+              <path d="M56 160 L120 160 L70 364 L44 364 Z" fill="#ffffff" opacity="0.04"/>
+
+              <!-- lower panel -->
+              <rect x="40" y="378" width="160" height="58" rx="8" fill="#101219" stroke="#24273180"/>
+              <!-- age badge -->
+              <g transform="translate(54,392)">
+                <circle cx="16" cy="16" r="15" fill="#0c0d14" stroke="url(#gold)" stroke-width="1.4"/>
+                <text x="16" y="21" text-anchor="middle" fill="#e7cd8b" font-family="Inter, sans-serif" font-size="13" font-weight="700">18</text>
+              </g>
+              <!-- contactless reader -->
+              <g transform="translate(104,390)">
+                <rect x="0" y="0" width="40" height="30" rx="6" fill="#15171f" stroke="#c19a4e" stroke-width="1"/>
+                <circle cx="12" cy="15" r="3.5" fill="#e7cd8b"/>
+                <path d="M20 9 q7 6 0 12 M25 5 q12 10 0 20" stroke="#e7cd8b" fill="none" stroke-width="1.4" opacity="0.8"/>
+              </g>
               <!-- dispense tray -->
-              <rect x="34" y="352" width="152" height="26" rx="5" fill="#08090d" stroke="#2a2d38"/>
-              <rect x="120" y="358" width="8" height="8" rx="2" fill="url(#gold)"/>
-              <!-- age tag -->
-              <g transform="translate(44,320)">
-                <rect x="0" y="0" width="30" height="30" rx="15" fill="#0d0e14" stroke="#c19a4e" stroke-width="1.3"/>
-                <text x="15" y="20" text-anchor="middle" fill="#e7cd8b" font-family="Inter, sans-serif" font-size="11" font-weight="700">18</text>
-              </g>
+              <rect x="152" y="392" width="40" height="30" rx="6" fill="#050609" stroke="#24273180"/>
+              <rect x="168" y="404" width="8" height="8" rx="2" fill="url(#gold)"/>
             </svg>
           </div>
-        </div>
-      </div>
-      <div class="hero-marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Discothèques</span><span aria-hidden="true">·</span><span>Bars de nuit</span><span aria-hidden="true">·</span><span>Beach clubs</span><span aria-hidden="true">·</span><span>Contrôle d'âge intégré</span><span aria-hidden="true">·</span><span>Paiement sans contact</span><span aria-hidden="true">·</span><span>Supervision à distance</span><span aria-hidden="true">·</span>
-          <span>Discothèques</span><span aria-hidden="true">·</span><span>Bars de nuit</span><span aria-hidden="true">·</span><span>Beach clubs</span><span aria-hidden="true">·</span><span>Contrôle d'âge intégré</span><span aria-hidden="true">·</span><span>Paiement sans contact</span><span aria-hidden="true">·</span><span>Supervision à distance</span><span aria-hidden="true">·</span>
         </div>
       </div>
     </section>
@@ -208,8 +247,8 @@
     <section class="stats-band" aria-label="Chiffres clés">
       <div class="container stats-grid">
         <div class="stat reveal">
-          <span class="stat-num" data-count="6" data-suffix="h">0 h</span>
-          <span class="stat-label">Disponible de minuit à 6 h, quand tout est fermé</span>
+          <span class="stat-num">minuit–6 h</span>
+          <span class="stat-label">Disponible quand aucun commerce n'est ouvert</span>
         </div>
         <div class="stat reveal">
           <span class="stat-num" data-count="60" data-prefix="&lt; " data-suffix="s">&lt; 60 s</span>
@@ -230,7 +269,7 @@
     <section class="section" id="concept">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">01 — Le concept</span>
+          <span class="section-index">Le besoin</span>
           <h2>Vos clients ont un besoin. Il n'y a rien d'ouvert.</h2>
           <p class="section-intro">Une vape vide en pleine soirée. Le client sort de votre établissement, cherche un commerce ouvert, et ne revient pas toujours. Nous installons un point de vente autonome qui règle le problème sur place, en moins d'une minute.</p>
         </div>
@@ -290,7 +329,7 @@
     <section class="section section-alt" id="machine">
       <div class="container machine-layout">
         <div class="section-head reveal">
-          <span class="section-index">02 — La machine</span>
+          <span class="section-index">La machine</span>
           <h2>Tout est intégré. Rien à gérer.</h2>
           <p class="section-intro">Format comptoir compact, sans emprise au sol. Paiement, contrôle d'âge, distribution et supervision à distance réunis dans un seul appareil.</p>
         </div>
@@ -327,7 +366,7 @@
     <section class="section" id="etablissement">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">03 — Votre rôle</span>
+          <span class="section-index">Votre rôle</span>
           <h2>Vous fournissez l'emplacement. Nous nous occupons du reste.</h2>
           <p class="section-intro">Une nouvelle raison pour vos clients de rester, et une recette complémentaire sur chaque vente — sans investissement, sans risque de stock.</p>
         </div>
@@ -362,7 +401,7 @@
     <section class="section section-alt" id="gamme">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">04 — La gamme</span>
+          <span class="section-index">La gamme</span>
           <h2>Une sélection adaptée à votre clientèle.</h2>
           <p class="section-intro">Marques reconnues, références rechargeables conformes à la réglementation française. Aucun dispositif à usage unique. La sélection définitive est arrêtée avec vous avant l'installation.</p>
         </div>
@@ -438,7 +477,7 @@
     <section class="section" id="conformite">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">05 — Conformité</span>
+          <span class="section-index">Conformité</span>
           <h2>Un cadre maîtrisé, une responsabilité qui reste chez nous.</h2>
           <p class="section-intro">La vente de produits de vapotage est encadrée. Minuit Retail porte l'ensemble des obligations : vous accueillez la machine, sans jamais endosser la conformité.</p>
         </div>
@@ -482,7 +521,7 @@
     <section class="section section-alt" id="revenus">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">06 — Vos revenus</span>
+          <span class="section-index">Vos revenus</span>
           <h2>L'emplacement fait toute la différence.</h2>
           <p class="section-intro">À machine et gamme identiques, une machine visible depuis le bar vend deux à trois fois plus qu'une machine reléguée dans un couloir. C'est la variable que vous maîtrisez — et c'est elle qui détermine votre redevance.</p>
         </div>
@@ -551,11 +590,30 @@
       </div>
     </section>
 
+    <!-- ============ PREUVE SOCIALE / PILOTE ============ -->
+    <section class="pilote" id="pilote" aria-label="Établissement pilote">
+      <div class="pilote-bg" aria-hidden="true"><span class="neon neon-violet"></span><span class="neon neon-gold"></span></div>
+      <div class="container pilote-inner">
+        <span class="pilote-tag">Établissement pilote · Côte d'Azur</span>
+        <blockquote class="pilote-quote">
+          «&nbsp;Zéro contrainte pour nous&nbsp;: la machine est là, elle tourne toute la nuit, et on touche une commission sur chaque vente. Nos clients ne sortent plus chercher ailleurs.&nbsp;»
+        </blockquote>
+        <div class="pilote-attr">
+          <span class="pilote-avatar" aria-hidden="true">M</span>
+          <div>
+            <strong>Le gérant</strong>
+            <span>Discothèque partenaire — région PACA</span>
+          </div>
+        </div>
+        <p class="pilote-note">Témoignage illustratif — le premier emplacement pilote est en cours de finalisation. Les retours réels seront publiés à l'issue de l'exploitation pilote de 90 jours.</p>
+      </div>
+    </section>
+
     <!-- ============ FAQ ============ -->
     <section class="section" id="faq">
       <div class="container faq-layout">
         <div class="section-head reveal">
-          <span class="section-index">07 — Questions fréquentes</span>
+          <span class="section-index">Questions fréquentes</span>
           <h2>Les questions qu'on nous pose.</h2>
           <p class="section-intro">Tout ce qu'un exploitant se demande avant d'accueillir une machine. Une réponse manque ? Écrivez-nous.</p>
         </div>
@@ -597,7 +655,7 @@
     <section class="section section-alt" id="partenariat">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-index">08 — Partenariat</span>
+          <span class="section-index">Partenariat</span>
           <h2>Devenir établissement partenaire.</h2>
           <p class="section-intro">Quatre étapes, de la visite à votre première facture. <strong>0 € à investir. Une redevance sur chaque vente.</strong></p>
         </div>
