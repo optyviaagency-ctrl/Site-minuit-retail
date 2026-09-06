@@ -110,7 +110,7 @@
   }
 
   /* ---------- Parallax du hero ---------- */
-  var machineScene = document.querySelector(".machine-scene");
+  var machineScene = document.querySelector(".machine-photo-hero");
   var heroNeons = document.querySelectorAll(".hero-scene .neon");
   if (!prefersReduced && (machineScene || heroNeons.length)) {
     var pTicking = false;

@@ -164,6 +164,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
+/* Hero : photo réelle du distributeur */
+.machine-photo { position: relative; margin: 0; display: flex; justify-content: center; }
+.machine-photo .machine-halo { inset: 4% 0 4%; }
+.machine-photo img { position: relative; z-index: 1; width: auto; max-width: 100%; max-height: 660px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 50px 90px -34px rgba(0,0,0,0.85); animation: float 7s ease-in-out infinite; }
+
+/* Machine : vue éclatée */
+.machine-exploded { margin: 0 0 76px; text-align: center; }
+.machine-exploded img { width: 100%; max-width: 880px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.machine-exploded figcaption { margin: 20px auto 0; font-family: var(--ff-mono); font-size: 0.76rem; letter-spacing: 0.01em; color: var(--text-dim); max-width: 64ch; line-height: 1.65; }
+
 /* ---------- Sections ---------- */
 .section { padding: 128px 0; position: relative; }
 .section-alt { background: var(--bg-alt); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
