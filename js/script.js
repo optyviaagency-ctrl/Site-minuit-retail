@@ -175,6 +175,20 @@
     toggleTop();
   }
 
+  /* ---------- CTA collant mobile ---------- */
+  var stickyCta = document.getElementById("sticky-cta");
+  var partSection = document.getElementById("partenariat");
+  if (stickyCta) {
+    var toggleSticky = function () {
+      var past = window.scrollY > (window.innerHeight * 0.9);
+      // masqué une fois arrivé sur la section partenariat (le formulaire est là)
+      var atForm = partSection && partSection.getBoundingClientRect().top < window.innerHeight * 0.6;
+      stickyCta.classList.toggle("show", past && !atForm);
+    };
+    window.addEventListener("scroll", toggleSticky, { passive: true });
+    toggleSticky();
+  }
+
   /* ---------- Navigation active au défilement (scroll-spy) ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".main-nav a[href^='#']"));
   var sections = navLinks
