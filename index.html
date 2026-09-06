@@ -111,6 +111,7 @@
     <section class="hero">
       <div class="hero-scene" aria-hidden="true">
         <canvas class="hero-stars" id="hero-stars"></canvas>
+        <div class="hero-spot" id="hero-spot"></div>
         <span class="neon neon-gold"></span>
         <span class="neon neon-violet"></span>
         <span class="neon neon-magenta"></span>
@@ -163,9 +164,12 @@
         </div>
 
         <div class="hero-visual reveal">
-          <figure class="machine-photo machine-photo-hero">
+          <figure class="machine-photo machine-photo-hero" id="machine-tilt">
             <div class="machine-halo"></div>
-            <img src="assets/machine-night.jpg" width="560" height="1151" alt="Distributeur Minuit Retail installé dans une rue, écran affichant les produits disponibles la nuit." loading="eager" />
+            <div class="tilt-inner">
+              <img src="assets/machine-night.jpg" width="560" height="1151" alt="Distributeur Minuit Retail installé dans une rue, écran affichant les produits disponibles la nuit." loading="eager" />
+              <span class="machine-gloss" aria-hidden="true"></span>
+            </div>
           </figure>
         </div>
       </div>

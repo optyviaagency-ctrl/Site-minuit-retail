@@ -165,10 +165,36 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-/* Hero : photo réelle du distributeur */
-.machine-photo { position: relative; margin: 0; display: flex; justify-content: center; }
+/* Hero : photo réelle du distributeur (tilt 3D + reflet) */
+.machine-photo { position: relative; margin: 0; display: flex; justify-content: center; perspective: 1200px; }
 .machine-photo .machine-halo { inset: 4% 0 4%; }
-.machine-photo img { position: relative; z-index: 1; width: auto; max-width: 100%; max-height: 660px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 50px 90px -34px rgba(0,0,0,0.85); animation: float 7s ease-in-out infinite; }
+.tilt-inner { position: relative; display: inline-block; transform-style: preserve-3d; transition: transform .4s cubic-bezier(.2,.8,.2,1); will-change: transform; animation: float 7s ease-in-out infinite; }
+.machine-photo img { position: relative; z-index: 1; display: block; width: auto; max-width: 100%; max-height: 660px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 50px 90px -34px rgba(0,0,0,0.85); }
+.machine-gloss { position: absolute; inset: 0; z-index: 2; border-radius: var(--radius); overflow: hidden; pointer-events: none; }
+.machine-gloss::before { content: ""; position: absolute; top: -25%; bottom: -25%; left: -60%; width: 45%; transform: skewX(-14deg); background: linear-gradient(105deg, transparent, rgba(255,247,220,0.42), transparent); opacity: 0; }
+.machine-gloss.sweep::before { animation: gloss 1.15s ease; }
+@keyframes gloss { 0% { left: -60%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: 170%; opacity: 0; } }
+
+/* Halo doré qui suit le curseur dans le hero */
+.hero-spot { position: absolute; z-index: 0; width: 460px; height: 460px; left: 50%; top: 42%; border-radius: 50%; transform: translate(-50%,-50%); pointer-events: none; opacity: 0; transition: opacity .5s ease; background: radial-gradient(circle, rgba(237,203,133,0.12), transparent 70%); mix-blend-mode: screen; }
+
+/* Néons vivants (respiration) — l'opacité seulement, pour ne pas gêner le parallax */
+@keyframes breathe { 0%,100% { opacity: 0.4; } 50% { opacity: 0.62; } }
+.neon { animation: breathe 9s ease-in-out infinite; }
+.neon-violet { animation-duration: 12s; animation-delay: -3s; }
+.neon-magenta { animation-duration: 14s; animation-delay: -7s; }
+
+/* Bouton magnétique */
+.btn.magnetic { transition: transform .18s cubic-bezier(.2,.8,.2,1), background .2s ease, box-shadow .2s ease; }
+
+/* Choréographie d'entrée du hero (cascade) */
+.hero-copy .eyebrow.reveal { transition-delay: .05s; }
+.hero-lead.reveal        { transition-delay: .30s; }
+.hero-badges.reveal      { transition-delay: .42s; }
+.hero-actions.reveal     { transition-delay: .54s; }
+.cta-reassure.reveal     { transition-delay: .64s; }
+.hero-visual.reveal { transform: translateY(30px) scale(.965); transition-delay: .35s; transition-duration: 1s; }
+.hero-visual.reveal.visible { transform: none; }
 
 /* Machine : vue éclatée */
 .machine-exploded { margin: 0 0 76px; text-align: center; }

@@ -129,6 +129,62 @@
     }, { passive: true });
   }
 
+  /* ---------- Hero interactif : tilt 3D, reflet, halo au curseur ---------- */
+  var hero = document.querySelector(".hero");
+  var tilt = document.getElementById("machine-tilt");
+  var spot = document.getElementById("hero-spot");
+  var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (hero && !prefersReduced && finePointer) {
+    var tiltInner = tilt ? tilt.querySelector(".tilt-inner") : null;
+    var gloss = tilt ? tilt.querySelector(".machine-gloss") : null;
+    var hTicking = false, mX = 0, mY = 0;
+
+    hero.addEventListener("mousemove", function (e) {
+      mX = e.clientX; mY = e.clientY;
+      if (hTicking) return;
+      hTicking = true;
+      requestAnimationFrame(function () {
+        if (spot) {
+          var hr = hero.getBoundingClientRect();
+          spot.style.left = (mX - hr.left) + "px";
+          spot.style.top = (mY - hr.top) + "px";
+          spot.style.opacity = "1";
+        }
+        if (tiltInner && tilt) {
+          var r = tilt.getBoundingClientRect();
+          var dx = (mX - (r.left + r.width / 2)) / r.width;
+          var dy = (mY - (r.top + r.height / 2)) / r.height;
+          tiltInner.style.transform = "rotateX(" + (-dy * 9).toFixed(2) + "deg) rotateY(" + (dx * 11).toFixed(2) + "deg)";
+        }
+        hTicking = false;
+      });
+    });
+    hero.addEventListener("mouseleave", function () {
+      if (spot) spot.style.opacity = "0";
+      if (tiltInner) tiltInner.style.transform = "";
+    });
+
+    if (gloss) {
+      var sweep = function () { gloss.classList.remove("sweep"); void gloss.offsetWidth; gloss.classList.add("sweep"); };
+      setTimeout(sweep, 1100);
+      setInterval(sweep, 7000);
+      tilt.addEventListener("mouseenter", sweep);
+    }
+
+    /* Bouton magnétique */
+    var magnet = document.querySelector(".hero-actions .btn-primary");
+    if (magnet) {
+      magnet.classList.add("magnetic");
+      magnet.addEventListener("mousemove", function (e) {
+        var r = magnet.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top + r.height / 2);
+        magnet.style.transform = "translate(" + (mx * 0.28).toFixed(1) + "px," + (my * 0.4).toFixed(1) + "px)";
+      });
+      magnet.addEventListener("mouseleave", function () { magnet.style.transform = ""; });
+    }
+  }
+
   /* ---------- Simulateur de redevance ----------
      Barème par tranches (chaque taux sur sa tranche uniquement) :
        1 – 100      : 10 %
