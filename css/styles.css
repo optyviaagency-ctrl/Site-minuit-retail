@@ -363,6 +363,8 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 .footer-bottom { border-top: 1px solid var(--line-soft); padding: 22px 0; }
 .footer-bottom .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .footer-bottom span { font-size: 0.82rem; color: var(--text-dim); }
+.footer-bottom a { color: var(--text-muted); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold); }
 .footer-warn { color: var(--gold-deep); }
 
 /* ---------- Reveal animation ---------- */
