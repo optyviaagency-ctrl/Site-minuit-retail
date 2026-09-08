@@ -1,0 +1,33 @@
+# Avant la mise en ligne — checklist
+
+> À compléter avant de publier la version finale. Les éléments ci-dessous
+> attendent des informations ou des comptes à fournir de ton côté.
+
+## ⚖️ Obligatoire (mentions légales)
+- [ ] **Capital social**, **SIREN / RCS**, **N° TVA intracom.**, **directeur de
+      la publication** — une fois la SAS immatriculée (`mentions-legales.html`).
+- [ ] **Hébergeur** : nom, adresse, contact (`mentions-legales.html`).
+
+## ✉️ Formulaire & contact
+- [ ] **`FORM_ENDPOINT`** (en tête de `js/script.js`) : URL d'un service de
+      formulaire (Formspree / Basin / Typeform…) configuré pour rediriger les
+      demandes vers l'adresse e-mail de réception. Tant qu'il est vide → repli `mailto`.
+- [ ] **`CONTACT_EMAIL`** (`js/script.js`) : adresse réelle de réception.
+- [ ] **Téléphone / WhatsApp** : fournir le numéro → j'ajoute les boutons de
+      contact rapide (fort levier de conversion en B2B nuit).
+
+## 🌐 Domaine & déploiement
+- [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans `index.html`,
+      `mentions-legales.html`, `sitemap.xml`, `robots.txt`, le JSON-LD et le
+      snippet analytics.
+- [ ] **Déploiement** : site statique → Netlify / Vercel / OVH… (`404.html` géré).
+
+## 📈 Mesure
+- [ ] **Activer l'analytics** : décommenter le snippet Plausible/Fathom dans le
+      `<head>` de `index.html` et créer le compte + ajouter le domaine.
+
+## ✨ Optionnel (améliorations)
+- [ ] **Plaquette PDF** téléchargeable (aimant à leads « Recevoir la plaquette »).
+- [ ] **Image hero responsive** (version mobile plus légère → meilleur LCP).
+- [ ] Aligner les visuels produit sur le prix **25 €** s'ils sont régénérés
+      (les rendus actuels affichent 18,90 € ; le modèle du site reste à 25 €).
