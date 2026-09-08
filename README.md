@@ -74,6 +74,24 @@ produit sont illustratifs.
 
 ## Aperçu local
 
+Site **statique** : aucune dépendance, aucun build. `npm install` n'est pas
+nécessaire (il n'y a rien à installer).
+
+- Le plus simple : **ouvrir `index.html`** dans un navigateur.
+- Petit serveur local, au choix :
+
 ```bash
+npm start                     # via npx serve (Node)
+# ou
 python3 -m http.server 8000   # puis http://localhost:8000
 ```
+
+> Si le dossier extrait du zip est dédoublé (`Site-minuit-retail-…/Site-minuit-retail-…/`),
+> place-toi dans celui qui contient `index.html`.
+
+## Déploiement
+
+Déposer le dossier (celui contenant `index.html`) sur un hébergeur statique —
+Netlify, Vercel, Cloudflare Pages, GitHub Pages, ou un simple hébergement web.
+Aucune configuration de build : `404.html` est pris en charge automatiquement
+par la plupart de ces plateformes.

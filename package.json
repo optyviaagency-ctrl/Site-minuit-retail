@@ -1,0 +1,13 @@
+{
+  "name": "minuit-retail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine Minuit Retail — statique (HTML/CSS/JS, sans build ni dépendance).",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "dev": "npx --yes serve .",
+    "preview": "npx --yes serve ."
+  },
+  "keywords": ["minuit-retail", "site-statique"],
+  "license": "UNLICENSED"
+}
