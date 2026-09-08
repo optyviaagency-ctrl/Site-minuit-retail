@@ -31,6 +31,10 @@
       else { toggle.setAttribute("aria-expanded", "true"); mobileNav.hidden = false; document.body.style.overflow = "hidden"; }
     });
     mobileNav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", close); });
+    // Fermer par la touche Échap
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { close(); toggle.focus(); }
+    });
     // Fermer si l'on repasse en desktop (le bouton de fermeture y est masqué)
     var desktopMq = window.matchMedia("(min-width: 861px)");
     var onMq = function () { if (desktopMq.matches && toggle.getAttribute("aria-expanded") === "true") close(); };
