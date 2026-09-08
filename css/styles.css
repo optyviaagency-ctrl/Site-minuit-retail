@@ -194,7 +194,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .row { display: grid; grid-template-columns: auto 1fr; gap: 28px; padding: 30px 4px; border-bottom: 1px solid var(--line); align-items: baseline; transition: background .4s var(--ease); }
 .row:hover { background: linear-gradient(90deg, var(--gold-soft), transparent 60%); }
 .row-n { font-family: var(--ff-mono); font-size: 12px; color: var(--gold); letter-spacing: 0.1em; padding-top: 5px; }
-.row-b h3 { font-family: var(--ff-display); font-weight: 600; font-size: 1.28rem; letter-spacing: -0.01em; margin-bottom: 8px; }
+.row-b h3 { font-family: var(--ff-display); font-weight: 600; font-size: 1.28rem; letter-spacing: -0.01em; margin-bottom: 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
+.row-delay { font-family: var(--ff-mono); font-weight: 400; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line-2); padding: 3px 9px; }
 .row-b p { color: var(--text-muted); font-size: 0.98rem; max-width: 52ch; }
 
 /* ============================================================

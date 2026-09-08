@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page introuvable — Minuit Retail</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0a0908" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .nf { min-height: 100svh; display: flex; align-items: center; }
+    .nf-inner { max-width: 40ch; }
+    .nf .code { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .nf .code::before { content: ""; width: 34px; height: 1px; background: var(--gold); opacity: 0.6; }
+    .nf h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 22px; }
+    .nf h1 em { font-style: italic; color: var(--gold); }
+    .nf p { color: var(--text-muted); margin-bottom: 36px; }
+  </style>
+</head>
+<body>
+  <header class="site-header scrolled" id="top">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand" aria-label="Minuit Retail — accueil">
+        <span class="brand-mono" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+            <rect x="3.5" y="3.5" width="25" height="25" rx="4.5" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="9" y="9" width="6" height="6" rx="1.4" fill="currentColor"/><rect x="17" y="9" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.1"/><rect x="9" y="17" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.1"/><rect x="17" y="17" width="6" height="6" rx="1.4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-word"><span class="brand-name">MINUIT</span><span class="brand-sub">RETAIL</span></span>
+      </a>
+      <a href="index.html#partenariat" class="cta header-cta"><span>Devenir partenaire</span><span class="arw" aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main class="nf">
+    <div class="wrap">
+      <div class="nf-inner">
+        <span class="code">Erreur 404</span>
+        <h1>Cette page s'est <em>éteinte</em>.</h1>
+        <p>Le lien que vous avez suivi n'existe pas ou n'existe plus. Revenons à l'essentiel.</p>
+        <a href="index.html" class="cta cta-solid"><span>Retour à l'accueil</span><span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

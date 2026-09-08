@@ -42,7 +42,8 @@ asymétrique, retenue.
 
 Hero (club) → Manifeste → Solution (rôles) → La machine (vue éclatée + points) →
 Coupure image → Technologie (fiche technique) → Établissement (bénéfices) →
-Revenus (+ simulateur) → Conformité → FAQ → Contact → Pied de page.
+Revenus (+ simulateur) → Conformité → FAQ → Mise en place (calendrier) →
+Contact → Pied de page. Page `404.html` sobre en complément.
 
 ## Interactions (`js/script.js`)
 
@@ -53,10 +54,13 @@ exclusive, formulaire de contact via `mailto`.
 
 ## À personnaliser
 
-- **`CONTACT_EMAIL`** en haut de `js/script.js` (actuellement `contact@minuit-retail.fr`).
-- **Domaine** `www.minuit-retail.fr` (métadonnées, sitemap, robots) → domaine réel.
-- **Formulaire** : `mailto` aujourd'hui ; brancher un service (Formspree, Netlify
-  Forms, API) sur le `submit` de `#contact-form` pour un envoi silencieux.
+- **Formulaire** : renseignez **`FORM_ENDPOINT`** en haut de `js/script.js` avec
+  l'URL d'un service (Formspree, Basin, Netlify Forms…) configuré pour rediriger
+  les demandes vers l'adresse e-mail de réception. Tant qu'il est vide, le
+  formulaire bascule sur un repli `mailto` (`CONTACT_EMAIL`, juste en dessous).
+- **Mesure d'audience** : snippet Plausible/Fathom prêt à activer, en commentaire
+  dans le `<head>` de `index.html` (sans cookie, sans bandeau).
+- **Domaine** `www.minuit-retail.fr` (métadonnées, sitemap, robots, analytics) → domaine réel.
 - **Champs légaux** (SIREN, RCS, capital, hébergeur…) dans `mentions-legales.html`,
   signalés « à compléter » jusqu'à l'immatriculation.
 

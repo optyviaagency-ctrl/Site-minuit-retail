@@ -5,7 +5,12 @@
   "use strict";
   var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Adresse de contact du formulaire (mailto, sans backend — voir README) */
+  /* --- Formulaire de contact ---------------------------------------------
+     FORM_ENDPOINT : URL du service de formulaire (ex. Formspree/Basin/Typeform
+     workflow) qui redirige les demandes vers l'adresse e-mail de votre choix.
+     Laissez vide pour le repli « mailto » (ouverture du client mail).
+     Renseignez-le quand l'adresse de réception sera définie — voir README.  */
+  var FORM_ENDPOINT = ""; // ex : "https://formspree.io/f/xxxxxxx"
   var CONTACT_EMAIL = "contact@minuit-retail.fr";
 
   /* Année */
@@ -28,9 +33,20 @@
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") === "true";
       if (open) { close(); }
-      else { toggle.setAttribute("aria-expanded", "true"); mobileNav.hidden = false; document.body.style.overflow = "hidden"; }
+      else {
+        toggle.setAttribute("aria-expanded", "true"); mobileNav.hidden = false; document.body.style.overflow = "hidden";
+        var first = mobileNav.querySelector("a"); if (first) first.focus();
+      }
     });
     mobileNav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", close); });
+    // Piégeage du focus dans l'overlay
+    mobileNav.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      var items = mobileNav.querySelectorAll("a");
+      var f = items[0], l = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === f) { e.preventDefault(); l.focus(); }
+      else if (!e.shiftKey && document.activeElement === l) { e.preventDefault(); f.focus(); }
+    });
     // Fermer par la touche Échap
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { close(); toggle.focus(); }
@@ -108,6 +124,31 @@
       var sel = document.getElementById("f-type");
       var typeLabel = sel ? sel.options[sel.selectedIndex].text : g("f-type");
       var etab = g("f-etab");
+      var btn = form.querySelector("button[type=submit]");
+
+      // 1) Envoi via service de formulaire (silencieux, fiable) si configuré
+      if (FORM_ENDPOINT) {
+        status.textContent = "Envoi en cours…";
+        if (btn) btn.disabled = true;
+        var payload = new FormData(form);
+        payload.append("type_label", typeLabel);
+        payload.append("_subject", "Demande de partenariat — " + etab);
+        fetch(FORM_ENDPOINT, { method: "POST", body: payload, headers: { "Accept": "application/json" } })
+          .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); })
+          .then(function () {
+            form.reset(); if (btn) btn.disabled = false;
+            status.className = "form-status ok";
+            status.textContent = "Merci « " + etab + " » — votre demande a bien été envoyée. Nous revenons vers vous sous 48 h.";
+          })
+          .catch(function () {
+            if (btn) btn.disabled = false;
+            status.className = "form-status err";
+            status.textContent = "L'envoi a échoué. Réessayez, ou écrivez-nous directement à " + CONTACT_EMAIL + ".";
+          });
+        return;
+      }
+
+      // 2) Repli sans backend : ouverture du client mail
       var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + typeLabel
         + "\nTéléphone : " + (g("f-tel") || "—") + "\nE-mail : " + g("f-email") + "\n\nMessage :\n" + (g("f-msg") || "—");
       window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
