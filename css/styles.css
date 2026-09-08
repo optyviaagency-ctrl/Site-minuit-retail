@@ -25,7 +25,7 @@
   /* — Textes chauds — */
   --text:       #efe9dd;
   --text-muted: #a89e8a;
-  --text-dim:   #726858;
+  --text-dim:   #8a8072;
   --label:      #b8ad97;
 
   --radius:     2px;
@@ -161,6 +161,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Filet vertical lumineux (signature) descendant du hero */
 .hero-rule { position: absolute; left: var(--gutter); bottom: 0; z-index: 1; width: 1px; height: 76px; background: linear-gradient(var(--gold), transparent); opacity: 0.6; }
 
+/* Desktop : composition deux colonnes — l'image tient dans sa colonne
+   (fini le sur-zoom d'une photo portrait étirée en plein cadre paysage). */
+@media (min-width: 861px) {
+  .hero { display: grid; grid-template-columns: 1fr 0.92fr; align-items: center; }
+  .hero-media { position: relative; inset: auto; grid-column: 2; grid-row: 1; align-self: stretch; min-height: 100svh; }
+  .hero-media img { object-position: 56% center; }
+  .hero-media::after { background:
+    linear-gradient(90deg, var(--bg) 0%, rgba(10,9,8,0.35) 13%, transparent 44%),
+    linear-gradient(0deg, rgba(6,5,5,0.45), transparent 42%); }
+  .hero-inner { grid-column: 1; grid-row: 1; z-index: 2; padding-top: 108px; padding-bottom: 56px; }
+  .hero-inner > * { max-width: 640px; }
+}
+@media (min-width: 1500px) {
+  .hero { grid-template-columns: 1fr 0.8fr; }
+}
+
 /* ============================================================
    Rythme des sections (varié, jamais mécanique)
    ============================================================ */
@@ -222,8 +238,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ============================================================
    IMAGE BREAK — pleine largeur, une ligne
    ============================================================ */
-.break { position: relative; height: 78vh; min-height: 460px; display: flex; align-items: center; overflow: hidden; }
-.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.break { position: relative; height: 56vh; min-height: 400px; max-height: 620px; display: flex; align-items: center; overflow: hidden; }
+.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 32% 42%; }
 .break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,5,5,0.86), rgba(6,5,5,0.3) 60%, rgba(6,5,5,0.55)); }
 .break-copy { position: relative; z-index: 1; }
 .break-copy .kicker { margin-bottom: 24px; }
