@@ -22,6 +22,14 @@
       snippet analytics.
 - [ ] **Déploiement** : site statique → Netlify / Vercel / OVH… (`404.html` géré).
 
+## 🔒 Sécurité (en-têtes)
+- [ ] **HTTPS** activé (fourni par l'hébergeur — Netlify/Vercel/Cloudflare le font seuls).
+- [ ] En-têtes de sécurité : le fichier **`_headers`** est prêt (Netlify /
+      Cloudflare Pages). Sur Vercel → `vercel.json` ; Apache → `.htaccess` ;
+      Nginx → `add_header`. Vérifier après déploiement (ex. securityheaders.com).
+- [ ] **Étendre la CSP** dans `_headers` une fois le formulaire et l'analytics
+      choisis (ajouter les hôtes Formspree / Plausible à `connect-src` / `script-src`).
+
 ## 📈 Mesure
 - [ ] **Activer l'analytics** : décommenter le snippet Plausible/Fathom dans le
       `<head>` de `index.html` et créer le compte + ajouter le domaine.
