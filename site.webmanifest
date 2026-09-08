@@ -1,12 +1,12 @@
 {
   "name": "Minuit Retail",
   "short_name": "Minuit Retail",
-  "description": "Le point de vente qui travaille pour vous quand tout est fermé.",
+  "description": "Les essentiels de votre nuit — ouvert quand tout est fermé.",
   "lang": "fr",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
+  "background_color": "#0a0908",
+  "theme_color": "#0a0908",
   "icons": [
     { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }

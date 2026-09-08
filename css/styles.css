@@ -61,7 +61,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 :focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
-.wrap-wide { width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 var(--gutter); }
 
 .skip-link { position: absolute; left: -999px; top: 0; z-index: 300; background: var(--gold); color: #17130a; padding: 10px 16px; }
 .skip-link:focus { left: 0; }
@@ -77,7 +76,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
 }
 .kicker::before { content: ""; width: 34px; height: 1px; background: var(--gold); opacity: 0.6; }
-.kicker.no-line::before { display: none; }
 .kicker-index { color: var(--text-dim); }
 
 /* ---------- Boutons / CTA : rectangulaires, texte + flèche ---------- */
@@ -159,9 +157,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero-lead { margin-top: 30px; max-width: 46ch; font-size: 1.12rem; line-height: 1.6; color: var(--text-muted); }
 .hero-actions { margin-top: 40px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-.hero-meta { position: absolute; right: var(--gutter); bottom: 8vh; z-index: 1; text-align: right; font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); line-height: 2.2; }
-.hero-meta span { display: block; }
-.hero-meta b { color: var(--gold); font-weight: 400; }
 
 /* Filet vertical lumineux (signature) descendant du hero */
 .hero-rule { position: absolute; left: var(--gutter); bottom: 0; z-index: 1; width: 1px; height: 76px; background: linear-gradient(var(--gold), transparent); opacity: 0.6; }
@@ -170,8 +165,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    Rythme des sections (varié, jamais mécanique)
    ============================================================ */
 .section { padding: 120px 0; }
-.section-lg { padding: 168px 0; }
-.section-sm { padding: 88px 0; }
 .section-line { border-top: 1px solid var(--line-soft); }
 
 /* En-tête de section éditorial */
@@ -385,7 +378,6 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
   .main-nav, .header-cta { display: none; }
   .nav-toggle { display: block; }
   .section, .contact { padding: 84px 0; }
-  .section-lg { padding: 110px 0; }
   .manifesto { padding: 100px 0; }
   .manifesto-grid { grid-template-columns: 1fr; gap: 20px; }
   .placement, .scale-list { grid-template-columns: 1fr; }
@@ -400,7 +392,6 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
   .key { border-right: none; padding-right: 0; }
   .form-row { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
-  .hero-meta { display: none; }
   .sec-head { grid-template-columns: 1fr; gap: 16px; }
   .spec-row { grid-template-columns: 1fr; gap: 4px; }
 }

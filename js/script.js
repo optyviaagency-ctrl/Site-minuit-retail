@@ -5,15 +5,20 @@
   "use strict";
   var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Adresse de contact du formulaire (mailto, sans backend — voir README) */
+  var CONTACT_EMAIL = "contact@minuit-retail.fr";
+
   /* Année */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
   /* Header : fond au défilement */
   var header = document.querySelector(".site-header");
-  var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 40); };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  if (header) {
+    var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 40); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
 
   /* Menu mobile */
   var toggle = document.querySelector(".nav-toggle");
@@ -26,6 +31,10 @@
       else { toggle.setAttribute("aria-expanded", "true"); mobileNav.hidden = false; document.body.style.overflow = "hidden"; }
     });
     mobileNav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", close); });
+    // Fermer si l'on repasse en desktop (le bouton de fermeture y est masqué)
+    var desktopMq = window.matchMedia("(min-width: 861px)");
+    var onMq = function () { if (desktopMq.matches && toggle.getAttribute("aria-expanded") === "true") close(); };
+    desktopMq.addEventListener ? desktopMq.addEventListener("change", onMq) : desktopMq.addListener(onMq);
   }
 
   /* Révélations discrètes */
@@ -84,7 +93,6 @@
   });
 
   /* Formulaire de contact — mailto (sans backend, voir README) */
-  var CONTACT_EMAIL = "contact@minuit-retail.fr";
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
   if (form) {
@@ -93,8 +101,10 @@
       status.className = "form-status";
       if (!form.checkValidity()) { status.textContent = "Merci de compléter les champs obligatoires."; status.classList.add("err"); form.reportValidity(); return; }
       var g = function (id) { return (document.getElementById(id).value || "").trim(); };
+      var sel = document.getElementById("f-type");
+      var typeLabel = sel ? sel.options[sel.selectedIndex].text : g("f-type");
       var etab = g("f-etab");
-      var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + g("f-type")
+      var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + typeLabel
         + "\nTéléphone : " + (g("f-tel") || "—") + "\nE-mail : " + g("f-email") + "\n\nMessage :\n" + (g("f-msg") || "—");
       window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
       status.textContent = "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.";
