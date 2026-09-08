@@ -63,14 +63,13 @@
   var euro = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   var range = document.getElementById("sim-range");
   var outVol = document.getElementById("sim-vol"), outM = document.getElementById("sim-month"),
-      outY = document.getElementById("sim-year"), outCa = document.getElementById("sim-ca");
+      outY = document.getElementById("sim-year");
   function updateSim() {
     var v = parseInt(range.value, 10);
     var m = redevance(v);
     outVol.textContent = v;
     outM.textContent = euro.format(Math.round(m));
     outY.textContent = euro.format(Math.round(m * 12));
-    outCa.textContent = euro.format(v * PANIER);
     var pct = ((v - range.min) / (range.max - range.min)) * 100;
     range.style.background = "linear-gradient(90deg, var(--gold) " + pct + "%, var(--line-2) " + pct + "%)";
   }
