@@ -473,6 +473,11 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
 .article-cta { margin-top: 64px; padding: 40px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .article-cta h2 { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; margin: 0 0 10px; }
 .article-cta p { color: var(--text-muted); margin: 0 0 24px; max-width: 52ch; }
+/* Le bouton hérite sinon de `.prose a` (doré + souligné) → texte doré invisible sur fond doré.
+   On rétablit ici le rendu normal du CTA à l'intérieur d'un article. */
+.article-cta a.cta { text-decoration: none; }
+.article-cta a.cta-solid { color: #17130a; }
+.article-cta a.cta-solid:hover { color: var(--text); }
 
 .article-nav { margin-top: 56px; padding-top: 26px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 

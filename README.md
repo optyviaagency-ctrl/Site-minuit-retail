@@ -66,7 +66,7 @@ exclusive, formulaire de contact via `mailto`.
   formulaire bascule sur un repli `mailto` (`CONTACT_EMAIL`, juste en dessous).
 - **Mesure d'audience** : snippet Plausible/Fathom prêt à activer, en commentaire
   dans le `<head>` de `index.html` (sans cookie, sans bandeau).
-- **Domaine** `www.minuit-retail.fr` (métadonnées, sitemap, robots, analytics) → domaine réel.
+- **Domaine** `minuitretail.fr` (métadonnées, sitemap, robots, JSON-LD, analytics).
 - **Champs légaux** (SIREN, RCS, capital, hébergeur…) dans `mentions-legales.html`,
   signalés « à compléter » jusqu'à l'immatriculation.
 

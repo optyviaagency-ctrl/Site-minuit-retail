@@ -2,45 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.minuit-retail.fr/</loc>
+    <loc>https://minuitretail.fr/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.minuit-retail.fr/assets/club.jpg</image:loc>
+      <image:loc>https://minuitretail.fr/assets/club.jpg</image:loc>
       <image:title>Distributeur automatique Minuit Retail en établissement de nuit</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.minuit-retail.fr/assets/machine-exploded.jpg</image:loc>
+      <image:loc>https://minuitretail.fr/assets/machine-exploded.jpg</image:loc>
       <image:title>Vue éclatée du distributeur automatique de vapes Minuit Retail</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.minuit-retail.fr/journal.html</loc>
+    <loc>https://minuitretail.fr/journal.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.minuit-retail.fr/distributeur-vape-discotheque-legal.html</loc>
+    <loc>https://minuitretail.fr/distributeur-vape-discotheque-legal.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.minuit-retail.fr/rentabilite-distributeur-automatique-boite-de-nuit.html</loc>
+    <loc>https://minuitretail.fr/rentabilite-distributeur-automatique-boite-de-nuit.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.minuit-retail.fr/controle-age-distributeur-automatique.html</loc>
+    <loc>https://minuitretail.fr/controle-age-distributeur-automatique.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.minuit-retail.fr/mentions-legales.html</loc>
+    <loc>https://minuitretail.fr/mentions-legales.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

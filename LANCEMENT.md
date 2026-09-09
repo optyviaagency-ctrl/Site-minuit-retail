@@ -25,11 +25,11 @@
       remplacer l'adresse par cet alias dans `js/script.js` si tu veux la cacher.
 
 ## 🌐 Domaine & déploiement
-- [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans **toutes les pages
-      HTML** (accueil, mentions légales, `journal.html` + les 3 articles),
-      `sitemap.xml`, `robots.txt`, les JSON-LD et le snippet analytics.
-      Astuce : `grep -rl "www.minuit-retail.fr" .` pour tout lister.
-- [ ] **Déploiement** : site statique → Netlify / Vercel / OVH… (`404.html` géré).
+- [x] **Domaine réel** : toutes les pages HTML, `sitemap.xml`, `robots.txt`, les
+      JSON-LD et le snippet analytics pointent désormais vers **`minuitretail.fr`**
+      (le placeholder `www.minuit-retail.fr` a été corrigé partout — c'était une
+      erreur SEO : Google aurait indexé un mauvais domaine). ✅
+- [ ] **Déploiement** : site statique → OVH (`404.html` + `.htaccess` gérés).
 
 ## 🔒 Sécurité (en-têtes)
 - [ ] **HTTPS** activé (fourni par l'hébergeur — Netlify/Vercel/Cloudflare le font seuls).
@@ -47,12 +47,12 @@
 - [ ] **Google Search Console** : valider le domaine, soumettre `sitemap.xml`.
 - [ ] **Bing Webmaster Tools** : idem (couvre aussi ChatGPT Search).
 - [ ] **Google Business Profile** (le plus fort levier local) : créer une fiche
-      « zone desservie » (PACA, sans adresse publique), catégorie « Fournisseur de
-      distributeurs automatiques », photos, lien vers le site.
+      « zone desservie » (arc Cap d'Agde → Monaco, sans adresse publique),
+      catégorie « Fournisseur de distributeurs automatiques », photos, lien vers le site.
 - [ ] **Citations / annuaires** : PagesJaunes, Kompass, annuaires nightlife/CHR.
 - [ ] **Backlinks** : presse locale, partenaires, fédérations de la nuit (voir `SEO.md`).
-- [ ] **Domaine dans le JSON-LD** : les `@id` et URLs pointent vers
-      `www.minuit-retail.fr` → remplacer par le domaine réel au déploiement.
+- [x] **Domaine dans le JSON-LD** : `@id`, URLs, canonical, OG et sitemap pointent
+      désormais vers `minuitretail.fr`. ✅
 
 ## ✨ Optionnel (améliorations)
 - [ ] **Plaquette PDF** téléchargeable (aimant à leads « Recevoir la plaquette »).

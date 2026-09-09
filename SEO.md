@@ -23,8 +23,8 @@ place est atteignable avec une exécution sérieuse.
 - installer un distributeur automatique dans mon bar / ma discothèque
 
 **Longue traîne locale** (à travailler via la fiche Google + contenu)
-- distributeur automatique vape Marseille / Nice / Cannes / PACA
-- distributeur cigarette électronique boîte de nuit + [ville]
+- distributeur automatique vape Marseille / Nice / Cannes / Saint-Tropez / Monaco / Cap d'Agde
+- distributeur cigarette électronique boîte de nuit + [ville de l'arc Cap d'Agde → Monaco]
 
 **Requêtes informationnelles** (pour de futurs articles — voir §6)
 - est-ce légal de vendre des vapes en distributeur automatique ?
@@ -82,7 +82,8 @@ pour une fiche « secteur d'intervention » **sans afficher d'adresse**.
 > 750 caractères, services, posts, Q&A) est dans **`GOOGLE-BUSINESS-PROFILE.md`**.
 
 - Catégorie principale : *Fournisseur de distributeurs automatiques* (ou proche).
-- Zones : Marseille, Nice, Cannes, Aix, Toulon… (toute la PACA).
+- Zones : tout l'arc méditerranéen, du Cap d'Agde à Monaco — Montpellier, Nîmes,
+  Orange, Avignon, Aix, Marseille, Toulon, Saint-Tropez, Cannes, Antibes, Nice, Menton.
 - Ajouter photos des machines, lien vers le site, horaires de contact.
 - Publier régulièrement (posts) et collecter des **avis** de partenaires.
 

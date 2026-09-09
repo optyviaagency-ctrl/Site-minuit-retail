@@ -41,25 +41,29 @@ Magasin de cigarettes électroniques
 
 ## 4. Zones desservies (à saisir une par une)
 ```
-Marseille · Nice · Cannes · Aix-en-Provence · Toulon · Saint-Tropez ·
-Antibes · Fréjus · Hyères · Bouches-du-Rhône · Var · Alpes-Maritimes ·
+Cap d'Agde · Montpellier · Nîmes · Orange · Avignon · Aix-en-Provence ·
+Marseille · Bandol · Toulon · Hyères · Saint-Tropez · Fréjus · Cannes ·
+Antibes · Juan-les-Pins · Nice · Menton · Monaco ·
+Hérault · Gard · Vaucluse · Bouches-du-Rhône · Var · Alpes-Maritimes ·
 Provence-Alpes-Côte d'Azur
 ```
+> L'arc va du Cap d'Agde (Occitanie littorale) à Monaco, en remontant jusqu'à
+> Orange / la vallée du Rhône. Saisir en priorité les grandes villes ci-dessus.
 
 ## 5. Description (à coller telle quelle — sous la limite de 750 caractères)
 ```
-Minuit Retail installe des distributeurs automatiques de vapes et pods rechargeables dans les discothèques, bars de nuit et beach clubs de la région Provence-Alpes-Côte d'Azur.
+Minuit Retail installe des distributeurs automatiques de vapes et pods rechargeables dans les discothèques, bars de nuit et beach clubs du littoral méditerranéen, du Cap d'Agde à Monaco.
 
 Notre principe : vous fournissez l'emplacement, nous gérons tout le reste — machine, stock, approvisionnement, maintenance, assurance et supervision à distance. L'établissement n'a aucun investissement ni gestion à porter, et perçoit une redevance progressive sur chaque vente.
 
 Chaque distributeur intègre un contrôle d'âge par lecture de document (vente interdite aux moins de 18 ans), un paiement sans contact et des références conformes, sans aucun jetable.
 
-Zone d'intervention : toute la PACA. Contactez-nous pour étudier votre emplacement.
+Zone : Occitanie littorale, PACA et Monaco. Contactez-nous pour votre emplacement.
 ```
 
 ## 6. Coordonnées
 - **Téléphone / WhatsApp** : `+33 7 82 80 92 21`
-- **Site web** : `https://www.minuit-retail.fr/`
+- **Site web** : `https://minuitretail.fr/`
 - **E-mail de contact** (via le site) : contact@optyvia-agency.com
 - **Horaires** : soit « ouvert 24 h/24 » (machines), soit des horaires de contact
   commercial (ex. lun–ven 10 h–18 h). Recommandé : horaires de contact.
@@ -93,21 +97,21 @@ Paiements sans contact · Sur rendez-vous · Devis gratuit · Géré par une PME
 ```
 Titre : Un distributeur autonome, ouvert quand tout est fermé
 Vos clients trouvent leurs essentiels sur place, en moins d'une minute — contrôle d'âge intégré, paiement sans contact. Vous fournissez l'emplacement, nous gérons tout le reste. Zéro investissement, une redevance sur chaque vente.
-Bouton : En savoir plus → https://www.minuit-retail.fr/
+Bouton : En savoir plus → https://minuitretail.fr/
 ```
 
 **Post 2 — Revenus**
 ```
 Titre : Combien rapporte un distributeur en discothèque ?
 Aucune charge pour l'établissement, une redevance progressive sur chaque vente. L'emplacement fait toute la différence. Estimez votre revenu avec notre simulateur.
-Bouton : En savoir plus → https://www.minuit-retail.fr/rentabilite-distributeur-automatique-boite-de-nuit.html
+Bouton : En savoir plus → https://minuitretail.fr/rentabilite-distributeur-automatique-boite-de-nuit.html
 ```
 
 **Post 3 — Conformité**
 ```
 Titre : Contrôle d'âge à chaque vente
 La vérification de la majorité est portée par la machine, pas par votre équipe. Références conformes, aucun jetable, paiement sans contact.
-Bouton : En savoir plus → https://www.minuit-retail.fr/controle-age-distributeur-automatique.html
+Bouton : En savoir plus → https://minuitretail.fr/controle-age-distributeur-automatique.html
 ```
 
 ## ❓ Questions/réponses à préremplir (fonction Q&A de la fiche)
