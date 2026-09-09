@@ -11,11 +11,26 @@
      Laissez vide pour le repli « mailto » (ouverture du client mail).
      Renseignez-le quand l'adresse de réception sera définie — voir README.  */
   var FORM_ENDPOINT = ""; // ex : "https://formspree.io/f/xxxxxxx"
-  var CONTACT_EMAIL = "contact@minuit-retail.fr";
+  var CONTACT_EMAIL = "contact@optyvia-agency.com";  // contact général (affiché, replis)
+  var FORM_EMAIL = "alexandre@optyvia-agency.com";   // réception des demandes du formulaire
 
   /* Année */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+
+  /* Retour en haut de page propre (logo / liens #top) — sans laisser #top dans l'URL */
+  var goTop = function () { window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" }); };
+  document.querySelectorAll('a[href="#top"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      goTop();
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+  if (location.hash === "#top") {
+    window.scrollTo(0, 0);
+    if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+  }
 
   /* Header : fond au défilement */
   var header = document.querySelector(".site-header");
@@ -151,7 +166,7 @@
       // 2) Repli sans backend : ouverture du client mail
       var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + typeLabel
         + "\nTéléphone : " + (g("f-tel") || "—") + "\nE-mail : " + g("f-email") + "\n\nMessage :\n" + (g("f-msg") || "—");
-      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
+      window.location.href = "mailto:" + FORM_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
       status.textContent = "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.";
       status.classList.add("ok");
     });

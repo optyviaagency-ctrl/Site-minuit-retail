@@ -58,9 +58,9 @@ Zone d'intervention : toute la PACA. Contactez-nous pour étudier votre emplacem
 ```
 
 ## 6. Coordonnées
-- **Téléphone** : `[à renseigner]`
+- **Téléphone / WhatsApp** : `+33 7 82 80 92 21`
 - **Site web** : `https://www.minuit-retail.fr/`
-- **E-mail de contact** (via le site) : contact@minuit-retail.fr
+- **E-mail de contact** (via le site) : contact@optyvia-agency.com
 - **Horaires** : soit « ouvert 24 h/24 » (machines), soit des horaires de contact
   commercial (ex. lun–ven 10 h–18 h). Recommandé : horaires de contact.
 

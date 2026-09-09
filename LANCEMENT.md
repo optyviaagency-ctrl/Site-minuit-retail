@@ -4,17 +4,20 @@
 > attendent des informations ou des comptes à fournir de ton côté.
 
 ## ⚖️ Obligatoire (mentions légales)
-- [ ] **Capital social**, **SIREN / RCS**, **N° TVA intracom.**, **directeur de
-      la publication** — une fois la SAS immatriculée (`mentions-legales.html`).
-- [ ] **Hébergeur** : nom, adresse, contact (`mentions-legales.html`).
+- [x] **Directeur de la publication** : OPTYVIA-Agency ✅
+- [x] **Hébergeur** : OVH SAS (Roubaix) ✅
+- [ ] **Capital social**, **SIREN / RCS**, **N° TVA intracom.** — une fois la SAS
+      immatriculée (`mentions-legales.html`, encore « à compléter »).
 
 ## ✉️ Formulaire & contact
-- [ ] **`FORM_ENDPOINT`** (en tête de `js/script.js`) : URL d'un service de
-      formulaire (Formspree / Basin / Typeform…) configuré pour rediriger les
-      demandes vers l'adresse e-mail de réception. Tant qu'il est vide → repli `mailto`.
-- [ ] **`CONTACT_EMAIL`** (`js/script.js`) : adresse réelle de réception.
-- [ ] **Téléphone / WhatsApp** : fournir le numéro → j'ajoute les boutons de
-      contact rapide (fort levier de conversion en B2B nuit).
+- [x] **`CONTACT_EMAIL`** = `contact@optyvia-agency.com` (contact affiché + WhatsApp) ✅
+- [x] **`FORM_EMAIL`** = `alexandre@optyvia-agency.com` : réception des demandes du
+      formulaire (via repli `mailto` pour l'instant) ✅
+- [x] **WhatsApp** : bulle flottante + numéro `+33 7 82 80 92 21` sur toutes les pages ✅
+- [ ] **`FORM_ENDPOINT`** (recommandé) : le `mailto` ouvre la messagerie du visiteur,
+      ce qui filtre des leads. Pour un envoi **fiable et silencieux**, créer un
+      Formspree/Basin pointant vers `alexandre@optyvia-agency.com` et coller l'URL
+      en tête de `js/script.js` (puis étendre la CSP, voir Sécurité).
 
 ## 🌐 Domaine & déploiement
 - [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans **toutes les pages
