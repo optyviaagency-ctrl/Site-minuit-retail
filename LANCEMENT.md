@@ -34,6 +34,17 @@
 - [ ] **Activer l'analytics** : décommenter le snippet Plausible/Fathom dans le
       `<head>` de `index.html` et créer le compte + ajouter le domaine.
 
+## 🔎 SEO / Référencement (voir `SEO.md` pour le détail)
+- [ ] **Google Search Console** : valider le domaine, soumettre `sitemap.xml`.
+- [ ] **Bing Webmaster Tools** : idem (couvre aussi ChatGPT Search).
+- [ ] **Google Business Profile** (le plus fort levier local) : créer une fiche
+      « zone desservie » (PACA, sans adresse publique), catégorie « Fournisseur de
+      distributeurs automatiques », photos, lien vers le site.
+- [ ] **Citations / annuaires** : PagesJaunes, Kompass, annuaires nightlife/CHR.
+- [ ] **Backlinks** : presse locale, partenaires, fédérations de la nuit (voir `SEO.md`).
+- [ ] **Domaine dans le JSON-LD** : les `@id` et URLs pointent vers
+      `www.minuit-retail.fr` → remplacer par le domaine réel au déploiement.
+
 ## ✨ Optionnel (améliorations)
 - [ ] **Plaquette PDF** téléchargeable (aimant à leads « Recevoir la plaquette »).
 - [ ] **Image hero responsive** (version mobile plus légère → meilleur LCP).

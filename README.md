@@ -24,6 +24,7 @@ asymétrique, retenue.
 │   ├── machine-night.jpg   # Image de coupure
 │   ├── favicon.svg · apple-touch-icon.png · og-image.png
 ├── robots.txt · sitemap.xml · site.webmanifest
+├── SEO.md                  # Stratégie de référencement (on-page + hors-page)
 └── README.md
 ```
 
@@ -63,6 +64,17 @@ exclusive, formulaire de contact via `mailto`.
 - **Domaine** `www.minuit-retail.fr` (métadonnées, sitemap, robots, analytics) → domaine réel.
 - **Champs légaux** (SIREN, RCS, capital, hébergeur…) dans `mentions-legales.html`,
   signalés « à compléter » jusqu'à l'immatriculation.
+
+## Référencement (SEO)
+
+Le site est optimisé pour les recherches « distributeur automatique de vape /
+pods rechargeables en discothèque & bar de nuit — PACA » : `title`/description
+et contenu orientés mots-clés, méta géo, `hreflang`, section **Zone
+d'intervention** (villes PACA), sitemap avec images, et un **JSON-LD `@graph`**
+complet (Organization, WebSite, WebPage, Service avec zones desservies,
+FAQPage). La stratégie détaillée et les actions **hors-page** décisives (Google
+Search Console, Google Business Profile, citations, backlinks, contenu) sont
+dans **`SEO.md`**.
 
 ## Données produit
 

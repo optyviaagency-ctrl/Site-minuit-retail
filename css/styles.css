@@ -412,3 +412,33 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
   .sec-head { grid-template-columns: 1fr; gap: 16px; }
   .spec-row { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* ============ Zone d'intervention (SEO local) ============ */
+.zone-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 40px;
+  max-width: 900px;
+}
+.zone-list li {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: color .2s ease, border-color .2s ease;
+}
+.zone-list li:hover {
+  color: var(--gold);
+  border-color: var(--line-2);
+}
+.zone-note {
+  margin-top: 28px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  max-width: 68ch;
+}
