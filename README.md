@@ -91,7 +91,25 @@ python3 -m http.server 8000   # puis http://localhost:8000
 
 ## Déploiement
 
-Déposer le dossier (celui contenant `index.html`) sur un hébergeur statique —
-Netlify, Vercel, Cloudflare Pages, GitHub Pages, ou un simple hébergement web.
-Aucune configuration de build : `404.html` est pris en charge automatiquement
-par la plupart de ces plateformes.
+Site statique : on transfère les fichiers tels quels, aucun build.
+
+**Fichiers à mettre en ligne** (le site public) :
+`index.html`, `mentions-legales.html`, `404.html`, `css/`, `js/`, `assets/`,
+`robots.txt`, `sitemap.xml`, `site.webmanifest`, `.htaccess` (Apache/OVH) ou
+`_headers` (Netlify/Cloudflare).
+
+**À NE PAS mettre en ligne** (fichiers de travail) :
+`README.md`, `LANCEMENT.md`, `package.json`, le script de build, le dossier `.git`.
+
+### OVH (hébergement mutualisé, Apache)
+1. Se connecter en **FTP/SFTP** (identifiants dans l'espace client OVH) avec
+   FileZilla, ou via l'explorateur de fichiers OVH.
+2. Envoyer les fichiers du site dans le dossier **`www/`** (racine web).
+3. Le **`.htaccess`** fourni s'occupe du reste : HTTPS forcé, en-têtes de
+   sécurité, page 404, blocage du listing des dossiers et des fichiers internes.
+4. Associer le domaine à l'hébergement dans l'espace client, activer le
+   **certificat SSL gratuit** (Let's Encrypt) proposé par OVH.
+
+> Pour garder le site invisible avant le lancement : la plupart des hébergeurs
+> proposent une **protection par mot de passe** (sur OVH, via un `.htaccess` +
+> `.htpasswd`) — demande-la si besoin.

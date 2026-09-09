@@ -1,0 +1,48 @@
+# ============================================================
+#  Minuit Retail — configuration Apache (OVH)
+#  À placer à la racine du site (à côté de index.html).
+# ============================================================
+
+# --- Forcer HTTPS (OVH mutualisé) ---
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# --- Page d'erreur personnalisée ---
+ErrorDocument 404 /404.html
+
+# --- Empêcher le listing des dossiers (ex. /assets/) ---
+Options -Indexes
+
+# --- Bloquer l'accès aux fichiers de travail / internes ---
+#     (README, checklist, script de build, config, dotfiles…)
+<FilesMatch "(^\.|\.(md|py|toml|lock|gitignore)$|^package\.json$|^_headers$)">
+  Require all denied
+</FilesMatch>
+
+# --- En-têtes de sécurité ---
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  # CSP : à étendre à l'activation de Formspree / Plausible (voir LANCEMENT.md)
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; form-action 'self' mailto:"
+</IfModule>
+
+# --- Cache navigateur (performance) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg        "access plus 1 month"
+  ExpiresByType image/png         "access plus 1 month"
+  ExpiresByType image/svg+xml     "access plus 1 month"
+  ExpiresByType text/css          "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType font/woff2        "access plus 1 year"
+</IfModule>
+
+# --- Compression (performance) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
