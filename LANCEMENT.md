@@ -14,10 +14,15 @@
 - [x] **`FORM_EMAIL`** = `alexandre@optyvia-agency.com` : réception des demandes du
       formulaire (via repli `mailto` pour l'instant) ✅
 - [x] **WhatsApp** : bulle flottante + numéro `+33 7 82 80 92 21` sur toutes les pages ✅
-- [ ] **`FORM_ENDPOINT`** (recommandé) : le `mailto` ouvre la messagerie du visiteur,
-      ce qui filtre des leads. Pour un envoi **fiable et silencieux**, créer un
-      Formspree/Basin pointant vers `alexandre@optyvia-agency.com` et coller l'URL
-      en tête de `js/script.js` (puis étendre la CSP, voir Sécurité).
+- [x] **`FORM_ENDPOINT`** = FormSubmit → envoi des leads par e-mail à
+      `alexandre@optyvia-agency.com`, sans compte ni backend, en restant sur le site ✅
+- [ ] ⚠️ **ACTIVER FormSubmit (à faire 1 fois)** : envoyer une **première demande
+      test** depuis le formulaire en ligne → un e-mail « Confirm your email » arrive
+      sur `alexandre@optyvia-agency.com` → **cliquer le lien de confirmation**. Tant
+      que ce n'est pas fait, les leads ne sont PAS délivrés.
+- [ ] *(optionnel, anti-spam)* Une fois activé, FormSubmit fournit un **alias**
+      (`formsubmit.co/ajax/xxxxxxxx`) qui masque l'adresse e-mail dans le code —
+      remplacer l'adresse par cet alias dans `js/script.js` si tu veux la cacher.
 
 ## 🌐 Domaine & déploiement
 - [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans **toutes les pages

@@ -10,7 +10,10 @@
      workflow) qui redirige les demandes vers l'adresse e-mail de votre choix.
      Laissez vide pour le repli « mailto » (ouverture du client mail).
      Renseignez-le quand l'adresse de réception sera définie — voir README.  */
-  var FORM_ENDPOINT = ""; // ex : "https://formspree.io/f/xxxxxxx"
+  // Endpoint FormSubmit : envoie chaque demande par e-mail à l'adresse ci-dessous,
+  // sans compte ni backend. La 1re demande déclenche un e-mail d'activation à
+  // valider une seule fois (voir LANCEMENT.md).
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/alexandre@optyvia-agency.com";
   var CONTACT_EMAIL = "contact@optyvia-agency.com";  // contact général (affiché, replis)
   var FORM_EMAIL = "alexandre@optyvia-agency.com";   // réception des demandes du formulaire
 
@@ -147,7 +150,9 @@
         if (btn) btn.disabled = true;
         var payload = new FormData(form);
         payload.append("type_label", typeLabel);
-        payload.append("_subject", "Demande de partenariat — " + etab);
+        payload.append("_subject", "Nouveau lead Minuit Retail — " + etab);
+        payload.append("_template", "table");
+        payload.append("_captcha", "false");
         fetch(FORM_ENDPOINT, { method: "POST", body: payload, headers: { "Accept": "application/json" } })
           .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); })
           .then(function () {

@@ -8,9 +8,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; form-action 'self' mailto:
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' mailto:
 
-# NB : à l'activation du formulaire (Formspree…) et de l'analytics (Plausible),
-# étendre la CSP :
+# NB : le formulaire envoie les leads via FormSubmit (connect-src https://formsubmit.co, déjà ajouté).
+# À l'activation de l'analytics (Plausible), étendre la CSP :
 #   script-src  … https://plausible.io
-#   connect-src … https://formspree.io https://plausible.io
+#   connect-src … https://plausible.io
