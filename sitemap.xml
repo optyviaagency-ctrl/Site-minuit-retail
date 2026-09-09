@@ -16,6 +16,30 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.minuit-retail.fr/journal.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.minuit-retail.fr/distributeur-vape-discotheque-legal.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.minuit-retail.fr/rentabilite-distributeur-automatique-boite-de-nuit.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.minuit-retail.fr/controle-age-distributeur-automatique.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.minuit-retail.fr/mentions-legales.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>

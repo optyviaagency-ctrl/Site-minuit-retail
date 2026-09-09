@@ -77,6 +77,10 @@ Un `@graph` JSON-LD complet est en place dans `index.html` :
 ### 5.2 Google Business Profile — **levier local nº 1**
 Minuit Retail est une **entreprise à zone desservie** (pas de boutique) → parfait
 pour une fiche « secteur d'intervention » **sans afficher d'adresse**.
+
+> 👉 **Tout le texte prêt à coller** (nom, catégories, zones, description sous
+> 750 caractères, services, posts, Q&A) est dans **`GOOGLE-BUSINESS-PROFILE.md`**.
+
 - Catégorie principale : *Fournisseur de distributeurs automatiques* (ou proche).
 - Zones : Marseille, Nice, Cannes, Aix, Toulon… (toute la PACA).
 - Ajouter photos des machines, lien vers le site, horaires de contact.
@@ -98,16 +102,22 @@ des annuaires de masse.
 
 ---
 
-## 6. Contenu (moyen terme — pour élargir la couverture)
+## 6. Contenu — **journal en ligne** ✅ (3 articles longue traîne)
 
-Le site est une landing page ; pour capter la longue traîne et renforcer
-l'autorité thématique, prévoir un **journal / FAQ étendue** (2–4 articles) :
-- « Distributeur de vapes en discothèque : est-ce légal en France ? »
-- « Quelle rentabilité pour un distributeur automatique en boîte de nuit ? »
-- « Contrôle d'âge automatisé : comment ça marche ? »
+Un **Journal** éditorial est en place (`journal.html`) avec 3 articles ciblant
+des requêtes informationnelles à forte intention, chacun balisé en `BlogPosting`
++ `BreadcrumbList` et maillé vers le formulaire :
+- **Légalité** → `distributeur-vape-discotheque-legal.html`
+- **Rentabilité** → `rentabilite-distributeur-automatique-boite-de-nuit.html`
+- **Contrôle d'âge** → `controle-age-distributeur-automatique.html`
 
-Chaque article = une page indexable de plus, maillée vers le formulaire.
-Dis-le-moi et je les crée dans la même direction artistique.
+Chaque article est une page indexable supplémentaire, liée depuis la navigation,
+le pied de page et les autres articles (maillage interne).
+
+**Pour aller plus loin** (quand tu veux, je les rédige) :
+- « Distributeur automatique de vape à Marseille / Nice / Cannes » (pages locales).
+- « Puffs interdits : quelles alternatives rechargeables en établissement ? »
+- « Combien de place faut-il pour un distributeur en bar de nuit ? »
 
 ---
 

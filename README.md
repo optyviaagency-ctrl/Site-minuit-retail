@@ -16,6 +16,10 @@ asymétrique, retenue.
 .
 ├── index.html              # Page unique (rythme éditorial)
 ├── mentions-legales.html   # Mentions légales & RGPD
+├── journal.html            # Hub éditorial (SEO longue traîne)
+├── distributeur-vape-discotheque-legal.html          # Article — légalité
+├── rentabilite-distributeur-automatique-boite-de-nuit.html  # Article — rentabilité
+├── controle-age-distributeur-automatique.html        # Article — contrôle d'âge
 ├── css/styles.css          # Design system éditorial
 ├── js/script.js            # Interactions (retenue)
 ├── assets/
@@ -25,6 +29,7 @@ asymétrique, retenue.
 │   ├── favicon.svg · apple-touch-icon.png · og-image.png
 ├── robots.txt · sitemap.xml · site.webmanifest
 ├── SEO.md                  # Stratégie de référencement (on-page + hors-page)
+├── GOOGLE-BUSINESS-PROFILE.md  # Fiche Google prête à coller (SEO local)
 └── README.md
 ```
 
@@ -72,9 +77,11 @@ pods rechargeables en discothèque & bar de nuit — PACA » : `title`/descripti
 et contenu orientés mots-clés, méta géo, `hreflang`, section **Zone
 d'intervention** (villes PACA), sitemap avec images, et un **JSON-LD `@graph`**
 complet (Organization, WebSite, WebPage, Service avec zones desservies,
-FAQPage). La stratégie détaillée et les actions **hors-page** décisives (Google
-Search Console, Google Business Profile, citations, backlinks, contenu) sont
-dans **`SEO.md`**.
+FAQPage). Un **Journal** éditorial (`journal.html` + 3 articles longue traîne,
+balisés `BlogPosting`) capte les requêtes informationnelles et maille vers le
+formulaire. La stratégie détaillée et les actions **hors-page** décisives (Google
+Search Console, citations, backlinks) sont dans **`SEO.md`** ; le texte prêt à
+coller de la fiche Google est dans **`GOOGLE-BUSINESS-PROFILE.md`**.
 
 ## Données produit
 

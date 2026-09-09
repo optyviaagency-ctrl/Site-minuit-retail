@@ -17,9 +17,10 @@
       contact rapide (fort levier de conversion en B2B nuit).
 
 ## 🌐 Domaine & déploiement
-- [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans `index.html`,
-      `mentions-legales.html`, `sitemap.xml`, `robots.txt`, le JSON-LD et le
-      snippet analytics.
+- [ ] **Domaine réel** : remplacer `www.minuit-retail.fr` dans **toutes les pages
+      HTML** (accueil, mentions légales, `journal.html` + les 3 articles),
+      `sitemap.xml`, `robots.txt`, les JSON-LD et le snippet analytics.
+      Astuce : `grep -rl "www.minuit-retail.fr" .` pour tout lister.
 - [ ] **Déploiement** : site statique → Netlify / Vercel / OVH… (`404.html` géré).
 
 ## 🔒 Sécurité (en-têtes)
