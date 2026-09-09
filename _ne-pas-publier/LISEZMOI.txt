@@ -1,0 +1,22 @@
+⛔ NE PAS METTRE EN LIGNE / NE PAS UPLOADER SUR OVH ⛔
+
+Ce dossier contient uniquement des fichiers de TRAVAIL internes :
+
+  • README.md ..................... documentation technique du projet
+  • LANCEMENT.md .................. checklist avant/après mise en ligne
+  • SEO.md ........................ stratégie de référencement (tâches à faire)
+  • GOOGLE-BUSINESS-PROFILE.md .... texte prêt à coller pour la fiche Google
+  • _headers ..................... en-têtes pour Netlify/Cloudflare (INUTILE sur OVH,
+                                    c'est le fichier .htaccess qui fait ce travail ici)
+  • package.json ................. métadonnées pour l'aperçu local
+
+RÈGLE SIMPLE POUR L'UPLOAD OVH :
+  → On met en ligne TOUT le contenu du site SAUF ce dossier « _ne-pas-publier ».
+
+Concrètement, on uploade dans le dossier www/ d'OVH :
+  index.html, journal.html, les 3 articles, mentions-legales.html, 404.html,
+  robots.txt, sitemap.xml, site.webmanifest, .htaccess
+  + les dossiers  css/  js/  assets/
+
+Aperçu local du site (facultatif) : depuis la racine du projet, lancer
+  npx --yes serve .

@@ -24,6 +24,10 @@ Options -Indexes
   Require all denied
 </FilesMatch>
 
+# --- Filet de sécurité : bloquer le dossier interne s'il est uploadé par erreur ---
+#     (normalement il ne doit PAS être mis en ligne — voir _ne-pas-publier/)
+RedirectMatch 404 ^/_ne-pas-publier(/.*)?$
+
 # --- En-têtes de sécurité ---
 <IfModule mod_headers.c>
   Header always set X-Frame-Options "DENY"
