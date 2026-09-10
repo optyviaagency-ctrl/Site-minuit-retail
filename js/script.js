@@ -13,9 +13,9 @@
   // Endpoint FormSubmit : envoie chaque demande par e-mail à l'adresse ci-dessous,
   // sans compte ni backend. La 1re demande déclenche un e-mail d'activation à
   // valider une seule fois (voir LANCEMENT.md).
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/alexandre@optyvia-agency.com";
-  var CONTACT_EMAIL = "contact@optyvia-agency.com";  // contact général (affiché, replis)
-  var FORM_EMAIL = "alexandre@optyvia-agency.com";   // réception des demandes du formulaire
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/contact@minuitretail.fr";
+  var CONTACT_EMAIL = "contact@minuitretail.fr";  // contact général (affiché, replis)
+  var FORM_EMAIL = "contact@minuitretail.fr";   // réception des demandes du formulaire
 
   /* Année */
   var y = document.getElementById("year");

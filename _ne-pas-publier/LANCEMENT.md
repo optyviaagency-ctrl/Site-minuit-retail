@@ -10,16 +10,20 @@
       immatriculée (`mentions-legales.html`, encore « à compléter »).
 
 ## ✉️ Formulaire & contact
-- [x] **`CONTACT_EMAIL`** = `contact@optyvia-agency.com` (contact affiché + WhatsApp) ✅
-- [x] **`FORM_EMAIL`** = `alexandre@optyvia-agency.com` : réception des demandes du
-      formulaire (via repli `mailto` pour l'instant) ✅
+- [x] **`CONTACT_EMAIL`** = `contact@minuitretail.fr` (contact affiché + WhatsApp) ✅
+- [x] **`FORM_EMAIL`** = `contact@minuitretail.fr` : réception des demandes du
+      formulaire (via repli `mailto`) ✅
 - [x] **WhatsApp** : bulle flottante + numéro `+33 7 82 80 92 21` sur toutes les pages ✅
 - [x] **`FORM_ENDPOINT`** = FormSubmit → envoi des leads par e-mail à
-      `alexandre@optyvia-agency.com`, sans compte ni backend, en restant sur le site ✅
-- [ ] ⚠️ **ACTIVER FormSubmit (à faire 1 fois)** : envoyer une **première demande
-      test** depuis le formulaire en ligne → un e-mail « Confirm your email » arrive
-      sur `alexandre@optyvia-agency.com` → **cliquer le lien de confirmation**. Tant
-      que ce n'est pas fait, les leads ne sont PAS délivrés.
+      `contact@minuitretail.fr`, sans compte ni backend, en restant sur le site ✅
+- [ ] ⚠️ **(RE)ACTIVER FormSubmit pour la NOUVELLE adresse (à faire 1 fois)** :
+      l'adresse de réception est passée à `contact@minuitretail.fr`. FormSubmit lie
+      l'activation à une adresse précise → il faut **réactiver pour celle-ci**.
+      Envoyer une **première demande test** depuis le formulaire en ligne → un e-mail
+      « Confirm your email » arrive sur `contact@minuitretail.fr` → **cliquer le lien
+      de confirmation**. Tant que ce n'est pas fait, les leads ne sont PAS délivrés.
+      ⚠️ Prérequis : la boîte `contact@minuitretail.fr` doit exister (créée dans
+      l'espace OVH, Emails) et être relevable.
 - [ ] *(optionnel, anti-spam)* Une fois activé, FormSubmit fournit un **alias**
       (`formsubmit.co/ajax/xxxxxxxx`) qui masque l'adresse e-mail dans le code —
       remplacer l'adresse par cet alias dans `js/script.js` si tu veux la cacher.

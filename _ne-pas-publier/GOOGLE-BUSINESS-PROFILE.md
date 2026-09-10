@@ -64,7 +64,7 @@ Zone : Occitanie littorale, PACA et Monaco. Contactez-nous pour votre emplacemen
 ## 6. Coordonnées
 - **Téléphone / WhatsApp** : `+33 7 82 80 92 21`
 - **Site web** : `https://minuitretail.fr/`
-- **E-mail de contact** (via le site) : contact@optyvia-agency.com
+- **E-mail de contact** (via le site) : contact@minuitretail.fr
 - **Horaires** : soit « ouvert 24 h/24 » (machines), soit des horaires de contact
   commercial (ex. lun–ven 10 h–18 h). Recommandé : horaires de contact.
 
