@@ -253,13 +253,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ============================================================
    PRODUIT — grand visuel éclaté, présenté comme objet de design
    ============================================================ */
-.product { padding: 130px 0; }
-.product-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 60px; }
+.product { padding: clamp(96px, 12vw, 170px) 0; }
+.product-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 72px; }
 .product-top h2 { max-width: 16ch; }
 .product-top .aside { color: var(--text-muted); max-width: 42ch; justify-self: end; }
-.product-figure { position: relative; }
-.product-figure img { width: 100%; height: auto; filter: saturate(0.94) contrast(1.03); }
-.product-figure .cap { margin-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline; border-top: 1px solid var(--line); padding-top: 18px; }
+/* Le distributeur présenté comme un objet : cadré, centré, entouré d'air,
+   posé sur un halo « socle ». L'image est recadrée pour écarter le bandeau
+   de badges du bas (qui trahissait l'IA et doublonnait le contenu du site). */
+.product-figure { position: relative; max-width: 860px; margin: 0 auto; padding: 20px 0 10px; }
+.product-figure::before { content: ""; position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%); width: 84%; height: 74%; background: radial-gradient(ellipse at center, var(--gold-soft), transparent 68%); filter: blur(22px); z-index: 0; pointer-events: none; }
+.product-figure img { position: relative; z-index: 1; width: 100%; height: auto; filter: grayscale(0.16) saturate(0.88) contrast(1.05) brightness(0.92); }
+.product-figure .cap { margin-top: 30px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline; border-top: 1px solid var(--line); padding-top: 18px; }
 .product-figure .cap span { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .product-figure .cap p { color: var(--text-dim); font-size: 0.9rem; max-width: 60ch; }
 
