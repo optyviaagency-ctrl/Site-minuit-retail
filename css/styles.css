@@ -40,6 +40,9 @@
   --ff-mono:    "Martian Mono", ui-monospace, "SFMono-Regular", monospace;
 
   --ease:       cubic-bezier(.22,.61,.36,1);
+
+  /* Grain argentique (finition tactile, anti « template ») — bruit SVG tuilé */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------- Reset / base ---------- */
@@ -53,6 +56,17 @@ body {
   overflow-x: hidden;
 }
 img, svg, video { max-width: 100%; display: block; }
+
+/* Voile de grain global — fixe, discret, au-dessus du contenu (jamais des clics).
+   C'est ce qui fait passer le rendu de « template » à « fait main / premium ». */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: var(--grain); background-size: 150px 150px;
+  opacity: 0.05; mix-blend-mode: overlay;
+}
+@media (prefers-reduced-motion: no-preference) {
+  body::before { will-change: auto; }
+}
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 { margin: 0; font-weight: 500; line-height: 1.12; }
 p { margin: 0; }
@@ -149,7 +163,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
 .hero-media { position: absolute; inset: 0; z-index: 0; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; filter: saturate(0.94) contrast(1.03) brightness(0.97); }
+/* Grain sur l'image → matité « argentique » qui gomme l'aspect stock/IA */
+.hero-media::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.10; mix-blend-mode: overlay; }
 .hero-media::after { content: ""; position: absolute; inset: 0; background:
   linear-gradient(180deg, rgba(6,5,5,0.55) 0%, rgba(6,5,5,0.05) 26%, rgba(6,5,5,0.12) 55%, rgba(6,5,5,0.9) 100%),
   linear-gradient(75deg, rgba(6,5,5,0.85) 0%, rgba(6,5,5,0.35) 40%, transparent 68%); }
@@ -178,6 +194,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (min-width: 1500px) {
   .hero { grid-template-columns: 1fr 0.8fr; }
 }
+
+/* ============================================================
+   Bandeau d'engagements (réassurance, sous le hero)
+   ============================================================ */
+.trust { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); background: var(--bg-alt); }
+.trust-row { display: grid; grid-template-columns: repeat(5, 1fr); }
+.trust-item { padding: 30px 26px; display: flex; flex-direction: column; gap: 9px; border-left: 1px solid var(--line-soft); }
+.trust-item:first-child { border-left: none; padding-left: 0; }
+.trust-k { font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.trust-v { font-size: 0.98rem; line-height: 1.35; color: var(--text); }
+@media (max-width: 900px) {
+  .trust-row { grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-soft); }
+  .trust-item { background: var(--bg-alt); border-left: none; padding: 22px 20px; }
+  .trust-item:first-child { padding-left: 20px; }
+}
+@media (max-width: 520px) { .trust-row { grid-template-columns: 1fr; } }
 
 /* ============================================================
    Rythme des sections (varié, jamais mécanique)
@@ -224,7 +256,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .product-top h2 { max-width: 16ch; }
 .product-top .aside { color: var(--text-muted); max-width: 42ch; justify-self: end; }
 .product-figure { position: relative; }
-.product-figure img { width: 100%; height: auto; }
+.product-figure img { width: 100%; height: auto; filter: saturate(0.94) contrast(1.03); }
 .product-figure .cap { margin-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline; border-top: 1px solid var(--line); padding-top: 18px; }
 .product-figure .cap span { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .product-figure .cap p { color: var(--text-dim); font-size: 0.9rem; max-width: 60ch; }
@@ -241,7 +273,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    IMAGE BREAK — pleine largeur, une ligne
    ============================================================ */
 .break { position: relative; height: 56vh; min-height: 400px; max-height: 620px; display: flex; align-items: center; overflow: hidden; }
-.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 32% 42%; }
+.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 32% 42%; filter: saturate(0.94) contrast(1.03) brightness(0.97); }
+.break::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.10; mix-blend-mode: overlay; }
 .break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,5,5,0.86), rgba(6,5,5,0.3) 60%, rgba(6,5,5,0.55)); }
 .break-copy { position: relative; z-index: 1; }
 .break-copy .kicker { margin-bottom: 24px; }
@@ -409,9 +442,11 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
 .footer-bottom a:hover { color: var(--gold); }
 
 /* ---------- Révélations : discrètes ---------- */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+/* Révélations : plus courtes et discrètes qu'avant — un rendu « établi »
+   plutôt que « chaque bloc qui flotte lentement » (marqueur de template). */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
-.reveal-img { clip-path: inset(0 0 8% 0); opacity: 0; transition: clip-path 1.3s var(--ease), opacity 1.3s var(--ease); }
+.reveal-img { clip-path: inset(0 0 5% 0); opacity: 0; transition: clip-path 0.85s var(--ease), opacity 0.85s var(--ease); }
 .reveal-img.in { clip-path: inset(0 0 0 0); opacity: 1; }
 
 /* ============================================================
