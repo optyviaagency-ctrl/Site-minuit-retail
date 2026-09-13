@@ -133,11 +133,22 @@
   /* Formulaire de contact — mailto (sans backend, voir README) */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
+  // Rend le message d'état impossible à manquer : on le fait défiler au centre
+  // de l'écran et on lui donne le focus (lecteurs d'écran + repère visuel).
+  function showStatus(cls, msg) {
+    status.className = "form-status " + cls;
+    status.textContent = msg;
+    if (cls === "ok" || cls === "err") {
+      try { status.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) { status.scrollIntoView(); }
+      status.setAttribute("tabindex", "-1");
+      try { status.focus({ preventScroll: true }); } catch (e) {}
+    }
+  }
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       status.className = "form-status";
-      if (!form.checkValidity()) { status.textContent = "Merci de compléter les champs obligatoires."; status.classList.add("err"); form.reportValidity(); return; }
+      if (!form.checkValidity()) { showStatus("err", "Merci de compléter les champs obligatoires (établissement, contact, e-mail)."); form.reportValidity(); return; }
       var g = function (id) { return (document.getElementById(id).value || "").trim(); };
       var sel = document.getElementById("f-type");
       var typeLabel = sel ? sel.options[sel.selectedIndex].text : g("f-type");
@@ -146,8 +157,8 @@
 
       // 1) Envoi via service de formulaire (silencieux, fiable) si configuré
       if (FORM_ENDPOINT) {
-        status.textContent = "Envoi en cours…";
-        if (btn) btn.disabled = true;
+        showStatus("pending", "Envoi en cours…");
+        if (btn) { btn.disabled = true; btn.classList.add("is-loading"); }
         var payload = new FormData(form);
         payload.append("type_label", typeLabel);
         payload.append("_subject", "Nouveau lead Minuit Retail — " + etab);
@@ -156,14 +167,12 @@
         fetch(FORM_ENDPOINT, { method: "POST", body: payload, headers: { "Accept": "application/json" } })
           .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); })
           .then(function () {
-            form.reset(); if (btn) btn.disabled = false;
-            status.className = "form-status ok";
-            status.textContent = "Merci « " + etab + " » — votre demande a bien été envoyée. Nous revenons vers vous sous 48 h.";
+            form.reset(); if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+            showStatus("ok", "Merci « " + etab + " » — votre demande a bien été envoyée. Nous revenons vers vous sous 48 h, par e-mail ou par téléphone.");
           })
           .catch(function () {
-            if (btn) btn.disabled = false;
-            status.className = "form-status err";
-            status.textContent = "L'envoi a échoué. Réessayez, ou écrivez-nous directement à " + CONTACT_EMAIL + ".";
+            if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+            showStatus("err", "L'envoi a échoué. Réessayez dans un instant, ou écrivez-nous directement à " + CONTACT_EMAIL + ".");
           });
         return;
       }
@@ -172,8 +181,7 @@
       var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + typeLabel
         + "\nTéléphone : " + (g("f-tel") || "—") + "\nE-mail : " + g("f-email") + "\n\nMessage :\n" + (g("f-msg") || "—");
       window.location.href = "mailto:" + FORM_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
-      status.textContent = "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.";
-      status.classList.add("ok");
+      showStatus("ok", "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.");
     });
   }
 })();
