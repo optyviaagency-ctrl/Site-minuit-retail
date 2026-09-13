@@ -62,7 +62,7 @@ img, svg, video { max-width: 100%; display: block; }
 body::before {
   content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
   background-image: var(--grain); background-size: 150px 150px;
-  opacity: 0.05; mix-blend-mode: overlay;
+  opacity: 0.06; mix-blend-mode: overlay;
 }
 @media (prefers-reduced-motion: no-preference) {
   body::before { will-change: auto; }
@@ -165,16 +165,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-media { position: absolute; inset: 0; z-index: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; filter: saturate(0.94) contrast(1.03) brightness(0.97); }
 /* Grain sur l'image → matité « argentique » qui gomme l'aspect stock/IA */
-.hero-media::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.10; mix-blend-mode: overlay; }
+.hero-media::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.12; mix-blend-mode: overlay; }
 .hero-media::after { content: ""; position: absolute; inset: 0; background:
   linear-gradient(180deg, rgba(6,5,5,0.55) 0%, rgba(6,5,5,0.05) 26%, rgba(6,5,5,0.12) 55%, rgba(6,5,5,0.9) 100%),
   linear-gradient(75deg, rgba(6,5,5,0.85) 0%, rgba(6,5,5,0.35) 40%, transparent 68%); }
 .hero-inner { position: relative; z-index: 1; width: 100%; padding-bottom: 8vh; padding-top: 120px; }
-.hero-kicker { margin-bottom: 30px; }
-.hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3.2rem, 8vw, 6.6rem); line-height: 0.98; letter-spacing: -0.015em; max-width: 15ch; }
+.hero-kicker { margin-bottom: 28px; }
+.hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3.4rem, 8.2vw, 6.8rem); line-height: 0.96; letter-spacing: -0.022em; max-width: 14ch; }
 .hero h1 em { font-style: italic; color: var(--gold); }
-.hero-lead { margin-top: 30px; max-width: 46ch; font-size: 1.12rem; line-height: 1.6; color: var(--text-muted); }
-.hero-actions { margin-top: 40px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.hero-lead { margin-top: 32px; max-width: 44ch; font-size: 1.14rem; line-height: 1.66; color: var(--text-muted); }
+.hero-actions { margin-top: 44px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
 
 /* Filet vertical lumineux (signature) descendant du hero */
 .hero-rule { position: absolute; left: var(--gutter); bottom: 0; z-index: 1; width: 1px; height: 76px; background: linear-gradient(var(--gold), transparent); opacity: 0.6; }
@@ -274,7 +274,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 .break { position: relative; height: 56vh; min-height: 400px; max-height: 620px; display: flex; align-items: center; overflow: hidden; }
 .break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 32% 42%; filter: saturate(0.94) contrast(1.03) brightness(0.97); }
-.break::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.10; mix-blend-mode: overlay; }
+.break::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.12; mix-blend-mode: overlay; }
 .break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,5,5,0.86), rgba(6,5,5,0.3) 60%, rgba(6,5,5,0.55)); }
 .break-copy { position: relative; z-index: 1; }
 .break-copy .kicker { margin-bottom: 24px; }
@@ -304,18 +304,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ============================================================
    REVENUS — modèle de redevance + simulateur (fonctionnel)
    ============================================================ */
-.rev-intro { max-width: 46ch; color: var(--text-muted); margin-top: 26px; }
-.placement { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--line); }
+.rev-intro { max-width: 52ch; color: var(--text-muted); margin-top: 26px; }
+.rev-label { margin-top: 56px; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
+.placement { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 22px; border-top: 1px solid var(--line); }
 .pl { padding: 34px 26px 34px 0; border-right: 1px solid var(--line); position: relative; }
 .pl:last-child { border-right: none; }
 .pl-bar { height: 3px; background: var(--surface-2); margin-bottom: 26px; position: relative; overflow: hidden; }
 .pl-bar span { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w); background: var(--gold-deep); }
 .pl.best .pl-bar span { background: var(--gold); }
-.pl-amt { font-family: var(--serif); font-size: 2.5rem; font-weight: 400; color: var(--text); letter-spacing: -0.01em; }
+.pl-place { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.pl-amt { margin-top: 12px; font-family: var(--serif); font-size: 2.1rem; font-weight: 400; color: var(--text); letter-spacing: -0.01em; }
+.pl:not(.best) .pl-amt { color: var(--text-muted); }
 .pl.best .pl-amt { color: var(--gold); }
-.pl-meta { margin-top: 8px; font-size: 0.9rem; color: var(--text-muted); }
-.pl-place { margin-top: 4px; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
-.rev-caption { margin-top: 24px; font-size: 0.82rem; color: var(--text-dim); }
+.pl-per { font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--text-dim); margin-left: 4px; }
+.pl-meta { margin-top: 8px; font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+.rev-caption { margin-top: 24px; font-size: 0.82rem; color: var(--text-dim); max-width: 68ch; border-left: 2px solid var(--line-2); padding-left: 16px; }
 
 .sim { margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; border-top: 1px solid var(--line); padding-top: 56px; }
 .sim h3 { font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
