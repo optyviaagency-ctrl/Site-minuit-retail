@@ -14,6 +14,10 @@
       <image:loc>https://minuitretail.fr/assets/machine-studio.jpg</image:loc>
       <image:title>Distributeur automatique de vapes Minuit Retail, façade tactile et paiement sans contact</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://minuitretail.fr/assets/machine-internals.jpg</image:loc>
+      <image:title>Vue éclatée du distributeur Minuit Retail : mécanique de distribution et modules internes</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://minuitretail.fr/journal.html</loc>

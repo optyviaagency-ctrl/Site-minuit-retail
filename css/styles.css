@@ -264,6 +264,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Plan studio sur fond clair : présenté comme une planche produit encadrée,
    pas assombri. Léger cadre champagne + coins arrondis pour l'ancrer sur le noir. */
 .product-figure img { position: relative; z-index: 1; width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line-2); filter: saturate(1.02) contrast(1.02); }
+/* Vue éclatée (fond sombre) : pleine largeur, sans cadre — elle se fond dans le noir. */
+.product-figure--wide { max-width: 100%; margin-top: 60px; }
+.product-figure--wide img { border: none; border-radius: 2px; filter: saturate(0.97) contrast(1.04) brightness(0.98); }
 .product-figure .cap { margin-top: 30px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline; border-top: 1px solid var(--line); padding-top: 18px; }
 .product-figure .cap span { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .product-figure .cap p { color: var(--text-dim); font-size: 0.9rem; max-width: 60ch; }
