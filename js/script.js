@@ -191,6 +191,18 @@
      ============================================================ */
   if (!prefersReduced) {
 
+    /* 0) Révélations en cascade : décalage progressif entre frères .reveal */
+    var seenParents = [];
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      var p = el.parentNode;
+      if (seenParents.indexOf(p) !== -1) return;
+      seenParents.push(p);
+      var sibs = Array.prototype.filter.call(p.children, function (c) {
+        return c.classList && c.classList.contains("reveal");
+      });
+      if (sibs.length > 1) sibs.forEach(function (s, i) { s.style.setProperty("--i", Math.min(i, 6)); });
+    });
+
     /* 1) Barre de progression de lecture */
     var bar = document.createElement("div");
     bar.className = "scroll-progress";

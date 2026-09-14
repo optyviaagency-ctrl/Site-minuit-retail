@@ -635,3 +635,45 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
   .cta-solid { transition: color .5s var(--ease), border-color .5s var(--ease); }
   .cta-solid:hover { box-shadow: none; }
 }
+
+/* ============================================================
+   Finition « grande maison » — raffinements haut de gamme
+   ============================================================ */
+
+/* Fondu d'entrée de page (neutralisé sous reduced-motion via la règle globale) */
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+body { animation: pageIn 0.6s var(--ease) both; }
+
+/* Barre de défilement fine et champagne (détail de navigateur premium) */
+html { scrollbar-width: thin; scrollbar-color: var(--surface-2) var(--bg); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 10px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+
+/* Zoom d'image très doux au survol (vie, sans parallaxe agressive) */
+.product-figure, .break { overflow: hidden; }
+.product-figure img, .break img { transition: transform 1.2s var(--ease), filter .6s var(--ease); }
+.product-figure:hover img, .break:hover img { transform: scale(1.035); }
+
+/* Cartes : légère élévation au survol (couplée au spotlight) */
+.bene, .key { transition: transform .45s var(--ease); }
+.bene:hover, .key:hover { transform: translateY(-3px); }
+
+/* Révélations en cascade : petit décalage progressif (posé en JS via --i) */
+.reveal[style*="--i"] { transition-delay: calc(var(--i) * 70ms); }
+
+/* Carte de revenu la plus forte : léger halo champagne pour guider l'œil */
+.pl.best { background: linear-gradient(180deg, rgba(217,196,156,0.06), transparent 62%); }
+
+/* Filets de section : dégradé qui s'estompe sur les bords (plus soigné qu'un trait plat) */
+.section-line { position: relative; border-top: none; }
+.section-line::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2) 18%, var(--line-2) 82%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-figure:hover img, .break:hover img { transform: none; }
+  .bene:hover, .key:hover { transform: none; }
+}
