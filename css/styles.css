@@ -597,3 +597,41 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
 .wa-fab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .wa-fab svg { display: block; }
 @media (max-width: 560px) { .wa-fab { right: 16px; bottom: 16px; width: 50px; height: 50px; } }
+
+/* ============================================================
+   Interactions premium — inspirées des micro-interactions des
+   bibliothèques UI modernes, mais faites main et avec retenue.
+   Tout est neutralisé sous prefers-reduced-motion (voir plus bas).
+   ============================================================ */
+
+/* Barre de progression de lecture (fin filet champagne) */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+  will-change: transform; pointer-events: none;
+}
+
+/* Spotlight au curseur : un halo doux suit la souris à l'intérieur des cartes */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight > * { position: relative; z-index: 1; }
+.spotlight::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  border-radius: inherit; opacity: 0; transition: opacity .45s var(--ease);
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(217,196,156,0.10), transparent 68%);
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* CTA principal : halo au survol + micro-aimantation (translation gérée en JS) */
+.cta-solid { transition: color .5s var(--ease), border-color .5s var(--ease), box-shadow .45s var(--ease), transform .18s var(--ease); }
+.cta-solid:hover { box-shadow: 0 10px 34px -10px rgba(217,196,156,0.5); }
+
+/* Compteurs animés : nombres tabulaires pour éviter les sauts de largeur */
+.count { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+  .spotlight::before { display: none; }
+  .cta-solid { transition: color .5s var(--ease), border-color .5s var(--ease); }
+  .cta-solid:hover { box-shadow: none; }
+}

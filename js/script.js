@@ -184,4 +184,78 @@
       showStatus("ok", "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.");
     });
   }
+
+  /* ============================================================
+     Interactions premium (esprit « bibliothèque UI » — fait main)
+     Toutes désactivées si l'utilisateur préfère moins d'animation.
+     ============================================================ */
+  if (!prefersReduced) {
+
+    /* 1) Barre de progression de lecture */
+    var bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    var ticking = false;
+    function drawProgress() {
+      var st = window.scrollY || document.documentElement.scrollTop;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h > 0 ? Math.min(1, st / h) : 0;
+      bar.style.transform = "scaleX(" + p + ")";
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(drawProgress); }
+    }, { passive: true });
+    drawProgress();
+
+    /* 2) Compteurs animés (chiffres des revenus) */
+    var nf = new Intl.NumberFormat("fr-FR");
+    function countUp(el) {
+      var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+      var dur = 1100, t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / dur);
+        var eased = 1 - Math.pow(1 - k, 3); // easeOutCubic
+        el.textContent = nf.format(Math.round(target * eased));
+        if (k < 1) window.requestAnimationFrame(step);
+      }
+      window.requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll(".count[data-count]");
+    if ("IntersectionObserver" in window && counters.length) {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); }
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(function (el) { cio.observe(el); });
+    }
+
+    /* 3) Spotlight au curseur sur les cartes */
+    var canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+    if (canHover) {
+      document.querySelectorAll(".trust-item, .bene, .key").forEach(function (card) {
+        card.classList.add("spotlight");
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+          card.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+      });
+
+      /* 4) CTA principal : micro-aimantation vers le curseur */
+      document.querySelectorAll(".cta-solid").forEach(function (btn) {
+        var maxPull = 6;
+        btn.addEventListener("pointermove", function (e) {
+          var r = btn.getBoundingClientRect();
+          var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+          var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+          btn.style.transform = "translate(" + (dx * maxPull).toFixed(1) + "px," + (dy * maxPull).toFixed(1) + "px)";
+        });
+        btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
+      });
+    }
+  }
 })();
