@@ -237,7 +237,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .manifesto .idx { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); padding-top: 14px; align-self: start; }
 
 /* Image d'ambiance (nuit / lounge) — habille la colonne de droite sur desktop */
-.manifesto-media { position: relative; margin: 0; overflow: hidden; border-radius: 3px; aspect-ratio: 548 / 720; }
+.manifesto-media { position: relative; margin: 0; overflow: hidden; border-radius: 3px; aspect-ratio: 548 / 782; }
 .manifesto-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; filter: saturate(0.98) contrast(1.04) brightness(0.92); }
 .manifesto-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px var(--line); background: linear-gradient(180deg, transparent 55%, rgba(6,5,5,0.55)); }
 .manifesto-tag { position: absolute; left: 16px; bottom: 14px; z-index: 2; font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); padding: 6px 12px; border: 1px solid var(--line-2); background: rgba(6,5,5,0.42); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
@@ -365,6 +365,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .rc-grid span::before { display: none; }
   .rc-bars { padding-left: 0; gap: 8px; }
   .rc-fill { max-width: 60px; }
+  .rc-val { font-size: 0.72rem; margin-bottom: 8px; }
 }
 
 .sim { margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; border-top: 1px solid var(--line); padding-top: 56px; }
