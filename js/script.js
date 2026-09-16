@@ -111,13 +111,14 @@
   var range = document.getElementById("sim-range");
   var outVol = document.getElementById("sim-vol"), outM = document.getElementById("sim-month"),
       outY = document.getElementById("sim-year");
+  var SOIREES_MOIS = 13; // ≈ 3 soirs / semaine → 156 soirées / an
   function updateSim() {
-    var v = parseInt(range.value, 10);
-    var m = redevance(v);
-    outVol.textContent = v;
+    var vSoir = parseInt(range.value, 10);
+    var m = redevance(vSoir * SOIREES_MOIS); // barème appliqué au volume mensuel
+    outVol.textContent = vSoir;
     outM.textContent = euro.format(Math.round(m));
     outY.textContent = euro.format(Math.round(m * 12));
-    var pct = ((v - range.min) / (range.max - range.min)) * 100;
+    var pct = ((vSoir - range.min) / (range.max - range.min)) * 100;
     range.style.background = "linear-gradient(90deg, var(--gold) " + pct + "%, var(--line-2) " + pct + "%)";
   }
   if (range) { range.addEventListener("input", updateSim); updateSim(); }

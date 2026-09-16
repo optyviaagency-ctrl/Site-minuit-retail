@@ -288,10 +288,14 @@
     <section class="manifesto" id="concept" aria-labelledby="manifesto-h">
       <div class="wrap manifesto-grid">
         <span class="idx">01</span>
-        <div>
+        <div class="manifesto-copy">
           <p class="reveal" id="manifesto-h">Quand tout est fermé, vos clients sortent chercher ailleurs, et ne reviennent pas toujours. <em>Minuit Retail règle le manque sur place</em>, en moins d'une minute.</p>
           <p class="foot reveal">Un distributeur pensé pour l'univers nocturne : discret, autonome, connecté. Il n'occupe presque aucun espace, ne demande aucune gestion, et prolonge le service de l'établissement là où il s'arrêtait.</p>
         </div>
+        <figure class="manifesto-media reveal-img">
+          <img src="assets/manifesto.jpg" width="548" height="782" alt="Ambiance de nuit : skyline illuminée, lounge feutré et distributeur Minuit Retail allumé." loading="lazy" />
+          <span class="manifesto-tag" aria-hidden="true">Minuit passé</span>
+        </figure>
       </div>
     </section>
 
@@ -407,24 +411,43 @@
           <p class="kicker"><span class="kicker-index">06</span> Vos revenus</p>
           <h2 class="h-serif reveal">L'emplacement fait toute la différence.</h2>
         </div>
-        <p class="rev-intro reveal">À machine et gamme identiques, une machine visible depuis le bar vend deux à trois fois plus qu'une machine reléguée dans un couloir. C'est la variable que vous maîtrisez, et la seule que ces ordres de grandeur illustrent. Rien ici n'est une promesse&nbsp;: seulement le lien entre l'emplacement et le volume.</p>
+        <p class="rev-intro reveal">À machine et gamme identiques, une machine visible depuis le bar vend deux à trois fois plus qu'une machine reléguée dans un couloir. C'est la variable que vous maîtrisez, et c'est elle qui détermine votre redevance annuelle.</p>
 
-        <p class="rev-label reveal">Trois emplacements, trois ordres de grandeur</p>
-        <div class="placement reveal">
-          <div class="pl"><div class="pl-bar"><span style="--w:33%"></span></div><div class="pl-place">Emplacement discret</div><div class="pl-amt">≈&nbsp;<span class="count" data-count="3000">3 000</span> €<span class="pl-per">/an</span></div><div class="pl-meta">estimation · 100 ventes / mois</div></div>
-          <div class="pl"><div class="pl-bar"><span style="--w:63%"></span></div><div class="pl-place">Emplacement correct</div><div class="pl-amt">≈&nbsp;<span class="count" data-count="5700">5 700</span> €<span class="pl-per">/an</span></div><div class="pl-meta">estimation · 175 ventes / mois</div></div>
-          <div class="pl best"><div class="pl-bar"><span style="--w:100%"></span></div><div class="pl-place">À côté du bar</div><div class="pl-amt">≈&nbsp;<span class="count" data-count="9030">9 030</span> €<span class="pl-per">/an</span></div><div class="pl-meta">estimation · 250 ventes / mois</div></div>
+        <p class="rev-label reveal">Revenu annuel reversé à l'établissement</p>
+        <figure class="revchart reveal" role="img" aria-label="Revenu annuel estimé selon l'affluence : environ 4 080 € pour 10 ventes par soir, 9 480 € pour 20 ventes, 17 280 € pour 30 ventes, 25 080 € pour 40 ventes, 32 880 € pour 50 ventes par soir.">
+          <div class="rc-plot">
+            <div class="rc-grid" aria-hidden="true">
+              <span style="bottom:83.33%" data-y="30 k€"></span>
+              <span style="bottom:55.56%" data-y="20 k€"></span>
+              <span style="bottom:27.78%" data-y="10 k€"></span>
+              <span style="bottom:0" data-y="0"></span>
+            </div>
+            <div class="rc-bars">
+              <div class="rc-bar" style="--h:11.3%"><span class="rc-val"><span class="count" data-count="4080">4 080</span>&nbsp;€</span><span class="rc-fill"></span><span class="rc-x"><strong>10</strong>ventes / soir</span></div>
+              <div class="rc-bar" style="--h:26.3%"><span class="rc-val"><span class="count" data-count="9480">9 480</span>&nbsp;€</span><span class="rc-fill"></span><span class="rc-x"><strong>20</strong>ventes / soir</span></div>
+              <div class="rc-bar" style="--h:48.0%"><span class="rc-val"><span class="count" data-count="17280">17 280</span>&nbsp;€</span><span class="rc-fill"></span><span class="rc-x"><strong>30</strong>ventes / soir</span></div>
+              <div class="rc-bar" style="--h:69.7%"><span class="rc-val"><span class="count" data-count="25080">25 080</span>&nbsp;€</span><span class="rc-fill"></span><span class="rc-x"><strong>40</strong>ventes / soir</span></div>
+              <div class="rc-bar best" style="--h:91.3%"><span class="rc-val"><span class="count" data-count="32880">32 880</span>&nbsp;€</span><span class="rc-fill"></span><span class="rc-x"><strong>50</strong>ventes / soir</span></div>
+            </div>
+          </div>
+          <figcaption class="rc-cap">Revenu annuel partenaire — estimation indicative</figcaption>
+        </figure>
+
+        <div class="hypo reveal" aria-label="Hypothèses de l'estimation">
+          <div class="hypo-item"><span class="hypo-v">3 soirs <em>/ semaine</em></span><span class="hypo-k">≈ 156 soirées d'ouverture par an</span></div>
+          <div class="hypo-item"><span class="hypo-v">25 € <em>TTC</em></span><span class="hypo-k">Panier moyen par vente</span></div>
+          <div class="hypo-item"><span class="hypo-v">10 → 20 %</span><span class="hypo-k">Redevance progressive par tranches</span></div>
         </div>
-        <p class="rev-caption reveal">Ordres de grandeur calculés sur un panier moyen de 25 € TTC et le barème de redevance ci-dessous. Chiffres illustratifs, à titre indicatif. Ils ne constituent pas un engagement de résultat.</p>
+        <p class="rev-caption reveal">Estimation sur la base de 156 soirées d'ouverture par an, d'un panier moyen de 25 € TTC et du barème progressif ci-dessous&nbsp;: 10 % jusqu'à 100 ventes/mois, 12 % de 101 à 180, 15 % de 181 à 260, puis 20 % au-delà. Chaque taux ne s'applique qu'aux ventes de sa tranche. Chiffres illustratifs, sans engagement de résultat.</p>
 
         <div class="sim reveal" id="simulateur">
           <div>
             <h3>Estimez votre redevance.</h3>
-            <p class="sub">Faites glisser selon l'affluence estimée de votre établissement. Le barème progressif s'applique par tranches.</p>
+            <p class="sub">Faites glisser selon l'affluence d'un soir. Le barème progressif s'applique au volume mensuel, par tranches.</p>
             <div class="sim-control">
-              <label for="sim-range">Ventes / mois <output id="sim-vol">175</output></label>
-              <input type="range" id="sim-range" min="20" max="400" step="5" value="175" />
-              <div class="sim-scale"><span>20</span><span>210</span><span>400</span></div>
+              <label for="sim-range">Ventes / soir <output id="sim-vol">20</output></label>
+              <input type="range" id="sim-range" min="5" max="60" step="1" value="20" />
+              <div class="sim-scale"><span>5</span><span>30</span><span>60</span></div>
             </div>
             <div class="scale-list">
               <div class="scale-item"><div class="t">10 %</div><div class="r">1 – 100</div></div>
@@ -434,8 +457,8 @@
             </div>
           </div>
           <div class="sim-out">
-            <div class="sim-metric"><span class="l">Redevance mensuelle</span><span class="v" id="sim-month">475 €</span></div>
-            <div class="sim-metric hero-metric"><span class="l">Redevance annuelle</span><span class="v" id="sim-year">5 700 €</span></div>
+            <div class="sim-metric"><span class="l">Redevance mensuelle</span><span class="v" id="sim-month">790 €</span></div>
+            <div class="sim-metric hero-metric"><span class="l">Redevance annuelle</span><span class="v" id="sim-year">9 480 €</span></div>
             <p class="sim-foot">Chaque taux ne s'applique qu'aux ventes de sa tranche, sans effet de seuil.</p>
           </div>
         </div>

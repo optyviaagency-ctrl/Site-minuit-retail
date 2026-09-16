@@ -230,11 +230,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    MANIFESTE — déclaration éditoriale, beaucoup d'air
    ============================================================ */
 .manifesto { padding: 150px 0; }
-.manifesto-grid { display: grid; grid-template-columns: 1fr 7fr; gap: 40px; }
-.manifesto p { font-family: var(--serif); font-weight: 300; font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.28; letter-spacing: -0.01em; color: var(--text); max-width: 20ch; }
+.manifesto-grid { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 0.62fr); gap: 40px clamp(40px, 6vw, 88px); align-items: center; }
+.manifesto p { font-family: var(--serif); font-weight: 300; font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.28; letter-spacing: -0.01em; color: var(--text); max-width: 22ch; }
 .manifesto p em { font-style: italic; color: var(--gold); }
-.manifesto .foot { margin-top: 48px; max-width: 52ch; color: var(--text-muted); font-size: 1.02rem; }
-.manifesto .idx { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); padding-top: 14px; }
+.manifesto .foot { margin-top: 40px; max-width: 52ch; color: var(--text-muted); font-size: 1.02rem; }
+.manifesto .idx { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); padding-top: 14px; align-self: start; }
+
+/* Image d'ambiance (nuit / lounge) — habille la colonne de droite sur desktop */
+.manifesto-media { position: relative; margin: 0; overflow: hidden; border-radius: 3px; aspect-ratio: 548 / 720; }
+.manifesto-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; filter: saturate(0.98) contrast(1.04) brightness(0.92); }
+.manifesto-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px var(--line); background: linear-gradient(180deg, transparent 55%, rgba(6,5,5,0.55)); }
+.manifesto-tag { position: absolute; left: 16px; bottom: 14px; z-index: 2; font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); padding: 6px 12px; border: 1px solid var(--line-2); background: rgba(6,5,5,0.42); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+@media (max-width: 960px) {
+  .manifesto-grid { grid-template-columns: auto 1fr; }
+  .manifesto-media { grid-column: 1 / -1; margin-top: 12px; aspect-ratio: 16 / 10; max-height: 420px; }
+  .manifesto-media img { object-position: 50% 36%; }
+}
 
 /* ============================================================
    SOLUTION — composition 40/60, points numérotés (sans cards)
@@ -254,9 +265,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    PRODUIT — grand visuel éclaté, présenté comme objet de design
    ============================================================ */
 .product { padding: clamp(96px, 12vw, 170px) 0; }
-.product-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 72px; }
-.product-top h2 { max-width: 16ch; }
-.product-top .aside { color: var(--text-muted); max-width: 42ch; justify-self: end; }
+/* En-tête produit centré : composition symétrique, plus d'espace vide à droite */
+.product-top { max-width: 780px; margin: 0 auto 76px; text-align: center; }
+.product-top .kicker { justify-content: center; }
+.product-top h2 { max-width: 20ch; margin: 22px auto 0; }
+.product-top .aside { color: var(--text-muted); max-width: 60ch; margin: 22px auto 0; }
 /* Le distributeur présenté comme un objet : cadré, centré, entouré d'air,
    posé sur un halo « socle ». L'image est recadrée pour écarter le bandeau
    de badges du bas (qui trahissait l'IA et doublonnait le contenu du site). */
@@ -271,10 +284,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .product-figure .cap span { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .product-figure .cap p { color: var(--text-dim); font-size: 0.9rem; max-width: 60ch; }
 
-/* Points clés produit sous le visuel, en typographie (pas de cards) */
-.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4px; border-top: 1px solid var(--line); }
-.key { padding: 34px 26px 34px 0; border-right: 1px solid var(--line); }
-.key:last-child { border-right: none; padding-right: 0; }
+/* Points clés produit sous le visuel — colonnes aérées, sans barres verticales
+   (les filets verticaux serraient trop chaque bloc). Un seul filet supérieur. */
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px clamp(32px, 4vw, 56px); margin-top: 8px; padding-top: 40px; border-top: 1px solid var(--line); }
+.key { padding: 0; border: none; }
 .key .ico { color: var(--gold); margin-bottom: 22px; height: 22px; }
 .key h4 { font-family: var(--ff-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 8px; }
 .key p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; }
@@ -282,13 +295,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ============================================================
    IMAGE BREAK — pleine largeur, une ligne
    ============================================================ */
-.break { position: relative; height: 56vh; min-height: 400px; max-height: 620px; display: flex; align-items: center; overflow: hidden; }
-.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 45%; filter: saturate(0.98) contrast(1.03) brightness(0.9); }
-.break::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.12; mix-blend-mode: overlay; }
-.break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,5,5,0.97) 0%, rgba(6,5,5,0.95) 34%, rgba(6,5,5,0.45) 60%, rgba(6,5,5,0.2) 80%, rgba(6,5,5,0.4)); }
-.break-copy { position: relative; z-index: 1; }
+/* Plein cadre, mis en valeur : la plus belle image du site respire.
+   Voile concentré en bas à gauche pour garder le texte lisible sans noyer la vue. */
+.break { position: relative; height: 84vh; min-height: 580px; max-height: 900px; display: flex; align-items: flex-end; overflow: hidden; }
+.break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 40%; filter: saturate(1.02) contrast(1.03) brightness(0.98); }
+.break::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: var(--grain); background-size: 130px 130px; opacity: 0.1; mix-blend-mode: overlay; }
+.break::after { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(90deg, rgba(6,5,5,0.9) 0%, rgba(6,5,5,0.66) 22%, rgba(6,5,5,0.14) 50%, transparent 68%),
+  linear-gradient(0deg, rgba(6,5,5,0.86) 0%, rgba(6,5,5,0.22) 30%, transparent 54%); }
+.break-copy { position: relative; z-index: 1; padding-bottom: clamp(48px, 8vh, 96px); }
 .break-copy .kicker { margin-bottom: 24px; }
-.break-copy .serif { font-family: var(--serif); font-weight: 300; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; max-width: 16ch; }
+.break-copy .serif { font-family: var(--serif); font-weight: 300; font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 1.05; max-width: 17ch; }
 .break-copy em { font-style: italic; color: var(--gold); }
 
 /* ============================================================
@@ -316,19 +333,39 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 .rev-intro { max-width: 52ch; color: var(--text-muted); margin-top: 26px; }
 .rev-label { margin-top: 56px; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
-.placement { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 22px; border-top: 1px solid var(--line); }
-.pl { padding: 34px 26px 34px 0; border-right: 1px solid var(--line); position: relative; }
-.pl:last-child { border-right: none; }
-.pl-bar { height: 3px; background: var(--surface-2); margin-bottom: 26px; position: relative; overflow: hidden; }
-.pl-bar span { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w); background: var(--gold-deep); }
-.pl.best .pl-bar span { background: var(--gold); }
-.pl-place { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-.pl-amt { margin-top: 12px; font-family: var(--serif); font-size: 2.1rem; font-weight: 400; color: var(--text); letter-spacing: -0.01em; }
-.pl:not(.best) .pl-amt { color: var(--text-muted); }
-.pl.best .pl-amt { color: var(--gold); }
-.pl-per { font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--text-dim); margin-left: 4px; }
-.pl-meta { margin-top: 8px; font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
-.rev-caption { margin-top: 24px; font-size: 0.82rem; color: var(--text-dim); max-width: 68ch; border-left: 2px solid var(--line-2); padding-left: 16px; }
+.rev-caption { margin-top: 24px; font-size: 0.82rem; color: var(--text-dim); max-width: 72ch; border-left: 2px solid var(--line-2); padding-left: 16px; }
+
+/* ---- Graphe de revenus (barres ascendantes) — l'effet « waouh » ---- */
+.revchart { margin: 24px 0 0; }
+.rc-plot { position: relative; }
+.rc-grid { position: absolute; left: 54px; right: 0; top: 0; bottom: 46px; z-index: 0; }
+.rc-grid span { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid var(--line-soft); }
+.rc-grid span::before { content: attr(data-y); position: absolute; left: -54px; top: -0.62em; width: 46px; text-align: right; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.04em; color: var(--text-dim); }
+.rc-bars { position: relative; z-index: 1; height: 360px; padding: 0 0 46px 54px; display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(12px, 2.6vw, 34px); align-items: end; }
+.rc-bar { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.rc-fill { width: 100%; max-width: 92px; height: 0; align-self: center; border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, var(--gold-deep), #8b7649); transition: height 1.1s var(--ease); }
+.revchart.in .rc-fill { height: var(--h); }
+.rc-bar.best .rc-fill { background: linear-gradient(180deg, #efe3c4, var(--gold)); box-shadow: 0 0 40px -8px rgba(217,196,156,0.55); }
+.rc-val { font-family: var(--serif); font-weight: 400; font-size: clamp(0.82rem, 1.9vw, 1.4rem); color: var(--text-muted); margin-bottom: 12px; white-space: nowrap; letter-spacing: -0.01em; }
+.rc-bar.best .rc-val { color: var(--gold); }
+.rc-x { position: absolute; left: 0; right: 0; bottom: -42px; text-align: center; font-family: var(--ff-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); line-height: 1.35; }
+.rc-x strong { display: block; font-size: 12px; font-weight: 500; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 2px; }
+.rc-cap { margin-top: 58px; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); text-align: center; }
+
+/* ---- Cartes d'hypothèses ---- */
+.hypo { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.hypo-item { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(217,196,156,0.035), transparent 70%); }
+.hypo-v { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.05rem); color: var(--gold); letter-spacing: -0.01em; line-height: 1; }
+.hypo-v em { font-family: var(--ff-mono); font-style: normal; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-left: 6px; }
+.hypo-k { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
+@media (max-width: 720px) { .hypo { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 560px) {
+  .rc-grid { left: 0; }
+  .rc-grid span::before { display: none; }
+  .rc-bars { padding-left: 0; gap: 8px; }
+  .rc-fill { max-width: 60px; }
+}
 
 .sim { margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; border-top: 1px solid var(--line); padding-top: 56px; }
 .sim h3 { font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
@@ -346,9 +383,8 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
 .sim-metric .v { font-family: var(--serif); font-size: 1.8rem; color: var(--text); }
 .sim-metric.hero-metric .v { color: var(--gold); font-size: 2.4rem; }
 .sim-foot { margin-top: 22px; font-size: 0.8rem; color: var(--text-dim); }
-.scale-list { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
-.scale-item { padding: 22px 18px 22px 0; border-right: 1px solid var(--line); }
-.scale-item:last-child { border-right: none; }
+.scale-list { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 26px; }
+.scale-item { padding: 18px 0 0; border-top: 1px solid var(--line); }
 .scale-item .t { font-family: var(--serif); font-size: 1.7rem; color: var(--gold); }
 .scale-item .r { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-top: 8px; }
 
@@ -468,11 +504,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
 @media (max-width: 1080px) {
   .tech, .faq-grid, .contact-grid, .sim { grid-template-columns: 1fr; gap: 44px; }
   .split { grid-template-columns: 1fr; gap: 44px; }
-  .product-top { grid-template-columns: 1fr; gap: 20px; }
-  .product-top .aside { justify-self: start; }
   .keys { grid-template-columns: 1fr 1fr; }
-  .key:nth-child(2) { border-right: none; padding-right: 0; }
-  .key { border-bottom: 1px solid var(--line); }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {
@@ -481,17 +513,14 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: v
   .nav-toggle { display: block; }
   .section, .contact { padding: 84px 0; }
   .manifesto { padding: 100px 0; }
-  .manifesto-grid { grid-template-columns: 1fr; gap: 20px; }
-  .placement, .scale-list { grid-template-columns: 1fr; }
-  .pl, .scale-item { border-right: none; border-bottom: 1px solid var(--line); padding: 26px 0; }
-  .placement { border-top: 1px solid var(--line); }
+  .scale-list { grid-template-columns: 1fr 1fr; }
   .bene-grid { grid-template-columns: 1fr; gap: 0; }
   .product { padding: 90px 0; }
 }
 @media (max-width: 560px) {
   body { font-size: 15.5px; }
   .keys { grid-template-columns: 1fr; }
-  .key { border-right: none; padding-right: 0; }
+  .scale-list { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .sec-head { grid-template-columns: 1fr; gap: 16px; }
@@ -662,9 +691,6 @@ html { scrollbar-width: thin; scrollbar-color: var(--surface-2) var(--bg); }
 
 /* Révélations en cascade : petit décalage progressif (posé en JS via --i) */
 .reveal[style*="--i"] { transition-delay: calc(var(--i) * 70ms); }
-
-/* Carte de revenu la plus forte : léger halo champagne pour guider l'œil */
-.pl.best { background: linear-gradient(180deg, rgba(217,196,156,0.06), transparent 62%); }
 
 /* Filets de section : dégradé qui s'estompe sur les bords (plus soigné qu'un trait plat) */
 .section-line { position: relative; border-top: none; }
