@@ -109,19 +109,33 @@
   }
   var euro = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   var range = document.getElementById("sim-range");
+  var nights = document.getElementById("sim-nights");
   var outVol = document.getElementById("sim-vol"), outM = document.getElementById("sim-month"),
-      outY = document.getElementById("sim-year");
-  var SOIREES_MOIS = 13; // ≈ 3 soirs / semaine → 156 soirées / an
+      outY = document.getElementById("sim-year"),
+      outNights = document.getElementById("sim-nights-out"),
+      outSoirees = document.getElementById("sim-soirees");
+  function paintRange(el) {
+    var pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+    el.style.background = "linear-gradient(90deg, var(--gold) " + pct + "%, var(--line-2) " + pct + "%)";
+  }
   function updateSim() {
     var vSoir = parseInt(range.value, 10);
-    var m = redevance(vSoir * SOIREES_MOIS); // barème appliqué au volume mensuel
+    var nps = nights ? parseInt(nights.value, 10) : 3;   // soirs d'ouverture / semaine
+    var soireesMois = nps * 52 / 12;                      // soirées par mois (52 semaines / an)
+    var m = redevance(vSoir * soireesMois);              // barème appliqué au volume mensuel
     outVol.textContent = vSoir;
+    if (outNights) outNights.textContent = nps;
+    if (outSoirees) outSoirees.textContent = Math.round(nps * 52);
     outM.textContent = euro.format(Math.round(m));
     outY.textContent = euro.format(Math.round(m * 12));
-    var pct = ((vSoir - range.min) / (range.max - range.min)) * 100;
-    range.style.background = "linear-gradient(90deg, var(--gold) " + pct + "%, var(--line-2) " + pct + "%)";
+    paintRange(range);
+    if (nights) paintRange(nights);
   }
-  if (range) { range.addEventListener("input", updateSim); updateSim(); }
+  if (range) {
+    range.addEventListener("input", updateSim);
+    if (nights) nights.addEventListener("input", updateSim);
+    updateSim();
+  }
 
   /* FAQ : ouverture exclusive */
   var faqItems = Array.prototype.slice.call(document.querySelectorAll(".faq-item"));

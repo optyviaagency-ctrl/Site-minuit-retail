@@ -378,6 +378,8 @@ input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; h
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: var(--gold); cursor: pointer; border: none; }
 input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: var(--gold); cursor: pointer; border: none; border-radius: 0; }
 .sim-scale { display: flex; justify-content: space-between; margin-top: 14px; font-family: var(--ff-mono); font-size: 10px; color: var(--text-dim); }
+.sim-nights-note { margin-top: 18px; font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+.sim-nights-note span { color: var(--gold); }
 .sim-out { border-top: 1px solid var(--line); }
 .sim-metric { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
 .sim-metric .l { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }

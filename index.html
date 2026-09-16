@@ -443,12 +443,18 @@
         <div class="sim reveal" id="simulateur">
           <div>
             <h3>Estimez votre redevance.</h3>
-            <p class="sub">Faites glisser selon l'affluence d'un soir. Le barème progressif s'applique au volume mensuel, par tranches.</p>
+            <p class="sub">Réglez l'affluence d'un soir et le nombre de soirs d'ouverture. Le barème progressif s'applique au volume mensuel, par tranches.</p>
             <div class="sim-control">
               <label for="sim-range">Ventes / soir <output id="sim-vol">20</output></label>
               <input type="range" id="sim-range" min="10" max="50" step="1" value="20" />
               <div class="sim-scale"><span>10</span><span>30</span><span>50</span></div>
             </div>
+            <div class="sim-control">
+              <label for="sim-nights">Soirs d'ouverture / semaine <output id="sim-nights-out">3</output></label>
+              <input type="range" id="sim-nights" min="1" max="7" step="1" value="3" />
+              <div class="sim-scale"><span>1</span><span>4</span><span>7</span></div>
+            </div>
+            <p class="sim-nights-note">≈ <span id="sim-soirees">156</span> soirées d'ouverture par an</p>
             <div class="scale-list">
               <div class="scale-item"><div class="t">10 %</div><div class="r">1 – 100</div></div>
               <div class="scale-item"><div class="t">12 %</div><div class="r">101 – 180</div></div>
