@@ -183,7 +183,7 @@
           .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); })
           .then(function () {
             form.reset(); if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
-            showStatus("ok", "Merci « " + etab + " » — votre demande a bien été envoyée. Nous revenons vers vous sous 48 h, par e-mail ou par téléphone.");
+            showStatus("ok", "Merci « " + etab + " » — votre demande a bien été envoyée. Nous revenons vers vous sous 24 h, par e-mail ou par téléphone.");
           })
           .catch(function () {
             if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
@@ -196,7 +196,7 @@
       var body = "Établissement : " + etab + "\nContact : " + g("f-nom") + "\nType : " + typeLabel
         + "\nTéléphone : " + (g("f-tel") || "—") + "\nE-mail : " + g("f-email") + "\n\nMessage :\n" + (g("f-msg") || "—");
       window.location.href = "mailto:" + FORM_EMAIL + "?subject=" + encodeURIComponent("Demande de partenariat — " + etab) + "&body=" + encodeURIComponent(body);
-      showStatus("ok", "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 48 h.");
+      showStatus("ok", "Merci — votre messagerie s'ouvre pour finaliser l'envoi. Nous revenons vers vous sous 24 h.");
     });
   }
 
